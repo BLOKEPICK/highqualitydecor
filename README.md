@@ -1,18 +1,19 @@
+# High Quality Decor — Serenade (v9) — LIGHT, NEW LOOK
 
-# High Quality Decor — Luminosa (v8) — LIGHT THEME
-
-Diseño claro / elegante, distinto a los anteriores (nada dark). Incluye:
-- Hero claro, tarjetas de servicios **numeradas**, tira de Instagram, About, Testimonios y Form.
-- Tipografías nuevas: **Playfair Display** (títulos) + **Inter** (texto).
-- Paleta light con acentos morados suaves.
+Diseño totalmente distinto (no dark, no grids/carruseles anteriores):
+- Hero editorial centrado con collage tipo polaroid.
+- **Servicios en timeline vertical** con imágenes alternas.
+- Portafolio editorial (3 figuras con captions).
+- About con quote y CTA.
+- Formulario claro con stepper y sin errores de tipografías/booleans.
 
 ## Pasos
 1) Sube el contenido del ZIP al repo.
 2) `npm install`
-3) Deploy en Vercel (Next 14).
+3) Deploy en Vercel (Next.js 14, App Router).
 
-## Edición
-- Servicios: `components/ServiceTiles.tsx`
-- Colores/Fuentes: `tailwind.config.ts` y `app/layout.tsx`
+## Editar
+- Collage: `components/PhotoCollage.tsx`
+- Servicios: `components/TimelineServices.tsx`
 - Form: `components/QuoteForm.tsx`
-- Instagram: `public/icons/instagram.svg` y enlaces en Header/Footer/IG strip.
+- Paleta/Tipografías: `tailwind.config.ts`, `app/layout.tsx`

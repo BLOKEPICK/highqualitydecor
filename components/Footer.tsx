@@ -1,9 +1,8 @@
-
 import Image from 'next/image'
 
 export default function Footer(){
   return (
-    <footer className="mt-20 border-t border-gray-200">
+    <footer className="mt-20 border-t border-black/5 bg-white/70">
       <div className="section py-10 grid md:grid-cols-3 gap-8 text-sm">
         <div>
           <div className="font-display text-lg">High Quality Decor</div>
@@ -11,7 +10,7 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Services</div>
-          <ul className="space-y-2 text-brand-gray">
+          <ul className="space-y-2 text-ser-gray">
             <li>Flower Bouquets</li>
             <li>Decoration</li>
             <li>Invitation Cards</li>
@@ -24,7 +23,7 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Contact</div>
-          <ul className="space-y-2 text-brand-gray">
+          <ul className="space-y-2 text-ser-gray">
             <li>Email: info@highqualitydecor.com</li>
             <li>WhatsApp: +1 (000) 000-0000</li>
             <li className="flex items-center gap-2">
@@ -34,7 +33,7 @@ export default function Footer(){
           </ul>
         </div>
       </div>
-      <div className="section pb-8 text-xs text-gray-500">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
+      <div className="section pb-8 text-xs text-ser-gray">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
     </footer>
   )
 }
