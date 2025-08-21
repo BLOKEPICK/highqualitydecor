@@ -32,7 +32,7 @@ export default function QuoteForm(){
     <form onSubmit={onSubmit} className="space-y-6">
       <ol className="flex items-center justify-between text-sm">
         {steps.map(s => (
-          <li key={s} className={`flex-1 text-center ${s===step? 'text-hqd-lavender font-medium' : 'text-slate-400'}`}>{s}</li>
+          <li key={s} className={`flex-1 text-center ${s===step? 'text-hqd-lilac font-medium' : 'text-slate-400'}`}>{s}</li>
         ))}
       </ol>
 

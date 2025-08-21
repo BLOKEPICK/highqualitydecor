@@ -1,16 +1,13 @@
-# High Quality Decor — Dark Pro Theme (v4)
+# High Quality Decor — Dark Renewed (v5)
 
-- Menos blanco, más contraste (morado/negro).
-- Títulos con **Cormorant Garamond**, cuerpo **Manrope**.
-- Icono de **Instagram (SVG)** en header y footer.
-- Ornamentos a través de gradientes y paneles con glass/blur.
-- Listo para Next.js 14 + Vercel.
+- Header **centrado** con logo + menú secundario y **drawer móvil**.
+- Fuentes nuevas: **Fraunces** (headings) + **Plus Jakarta Sans** (body).
+- Hero **split** (texto + imagen), servicios en **mosaico** con alturas variadas.
+- Portafolio **masonry** (CSS columns) para impacto visual.
+- Menos blanco, más contraste con paneles oscuros y acentos morados.
+- SVG de Instagram y logo incluidos.
 
 ## Pasos
 1) Sube este ZIP al repo (reemplaza el anterior).
 2) `npm install`
 3) Deploy en Vercel.
-
-## Personalización
-- Cambia imágenes de prueba en `app/page.tsx`.
-- WhatsApp/Email en `components/Footer.tsx` y CTA del hero.

@@ -6,25 +6,23 @@ const config: Config = {
     extend: {
       colors: {
         hqd: {
+          plum: '#5B218F',
           purple: '#6F2DBD',
-          plum: '#53208F',
-          noir: '#0B0B10',
+          noir: '#0C0D12',
           ink: '#12131A',
-          smoke: '#1B1C25',
-          lavender: '#D9CCF2',
-          silver: '#C9C9D1'
+          panel: '#151722',
+          lilac: '#CDBAF2',
+          fog: '#9FA3B2'
         }
       },
       boxShadow: {
-        soft: '0 12px 30px rgba(0,0,0,.22)',
-        inner: 'inset 0 1px 0 rgba(255,255,255,0.06)'
+        soft: '0 14px 36px rgba(0,0,0,.28)',
+        ring: '0 0 0 6px rgba(111,45,189,.15)'
       },
-      borderRadius: {
-        xl3: '1.25rem'
-      },
+      borderRadius: { xl3: '1.25rem' },
       fontFamily: {
-        display: ['var(--font-cormorant)'],
-        sans: ['var(--font-manrope)']
+        display: ['var(--font-fraunces)'],
+        sans: ['var(--font-jakarta)']
       }
     }
   },

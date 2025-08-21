@@ -3,19 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0B0B10;
-  --panel: #12131A;
   --ink: #EDECF5;
 }
 
 html, body { height: 100%; }
-body { @apply bg-hqd-noir text-[var(--ink)] font-sans; background-image: radial-gradient(1200px 600px at 100% 0%, rgba(111,45,189,.15), transparent 60%), radial-gradient(800px 400px at 0% 100%, rgba(83,32,143,.18), transparent 60%); }
+body {
+  @apply bg-hqd-noir text-[var(--ink)] font-sans;
+  background-image:
+    radial-gradient(900px 420px at 10% -10%, rgba(95,34,143,.28), transparent 60%),
+    radial-gradient(700px 380px at 100% 120%, rgba(111,45,189,.22), transparent 60%);
+}
 
 /* Type scale */
 .h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight; }
 .h2 { @apply text-3xl md:text-4xl font-semibold; }
 .h3 { @apply text-2xl font-semibold; }
-.p  { @apply text-base leading-relaxed text-slate-200/80; }
+.p  { @apply text-base leading-relaxed text-slate-200/85; }
 
 /* Buttons */
 .btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl3 font-medium transition; }
@@ -23,9 +26,7 @@ body { @apply bg-hqd-noir text-[var(--ink)] font-sans; background-image: radial-
 .btn-ghost { @apply btn border border-white/20 text-white hover:bg-white/10; }
 .btn-outline { @apply btn border border-hqd-purple text-hqd-purple hover:bg-hqd-purple/10; }
 
-/* Cards & sections */
-.card { @apply rounded-xl3 bg-hqd-ink/5 backdrop-blur border border-white/10 shadow-inner; }
+/* UI */
+.card { @apply rounded-xl3 bg-hqd-panel/70 backdrop-blur border border-white/10; }
 .section { @apply max-w-7xl mx-auto px-4 sm:px-6; }
-
-/* Header glass */
-.glass { @apply bg-hqd-ink/10 backdrop-blur border border-white/10; }
+.divider { @apply w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent; }
