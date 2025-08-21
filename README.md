@@ -1,13 +1,16 @@
-# High Quality Decor — Pro Theme (v3)
+# High Quality Decor — Dark Pro Theme (v4)
 
-Diseño más profesional con hero oscuro, ornamentos SVG y grid de servicios con imágenes.
+- Menos blanco, más contraste (morado/negro).
+- Títulos con **Cormorant Garamond**, cuerpo **Manrope**.
+- Icono de **Instagram (SVG)** en header y footer.
+- Ornamentos a través de gradientes y paneles con glass/blur.
+- Listo para Next.js 14 + Vercel.
 
 ## Pasos
-1) Sube este ZIP al repo (o sustituye el anterior).
+1) Sube este ZIP al repo (reemplaza el anterior).
 2) `npm install`
-3) `npm run dev` (opcional) y luego deploy en Vercel.
+3) Deploy en Vercel.
 
-## Personalización rápida
-- Cambia imágenes de prueba en `app/page.tsx` (URLs de Unsplash).
-- Logo: reemplaza `public/logo.svg`.
-- WhatsApp/Email: edita en el Footer y el botón del CTA.
+## Personalización
+- Cambia imágenes de prueba en `app/page.tsx`.
+- WhatsApp/Email en `components/Footer.tsx` y CTA del hero.

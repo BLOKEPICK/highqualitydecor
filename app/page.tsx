@@ -7,59 +7,40 @@ import QuoteForm from '@/components/QuoteForm'
 export default function HomePage(){
   return (
     <>
-      {/* HERO PRO */}
+      {/* HERO */}
       <section className="relative">
         <div className="absolute inset-0 -z-10">
-          <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2400&auto=format&fit=crop" alt="" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-hqd-pearl rounded-t-[50%]" />
+          <Image src="https://images.unsplash.com/photo-1573167243872-43c6433b9d40?q=80&w=2400&auto=format&fit=crop" alt="" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-hqd-smoke/90" />
         </div>
-        <Section className="pt-28 pb-40 text-center text-white">
+        <Section className="pt-28 pb-32 text-center text-white">
           <div className="mx-auto max-w-3xl">
             <div className="inline-flex items-center gap-2 text-xs tracking-widest uppercase opacity-90">
               <span className="h-1 w-8 bg-hqd-purple rounded-full" /> Premium Event Studio
             </div>
-            <h1 className="h1 mt-4 font-display">Elevated décor for unforgettable family moments.</h1>
-            <p className="p mt-4 text-white/80">Weddings, quinceañeras, graduations, baby showers, memorials — we design, style, and capture it all.</p>
+            <h1 className="h1 mt-4 font-display">Timeless décor. Modern craft.</h1>
+            <p className="p mt-4 text-white/85">From intimate gatherings to grand celebrations, we style, plan, and capture your most meaningful moments.</p>
             <div className="mt-8 flex items-center justify-center gap-3">
               <Link href="#quote" className="btn-primary">Get a Quote</Link>
               <Link href="#portfolio" className="btn-ghost">View Portfolio</Link>
             </div>
           </div>
         </Section>
-        {/* Corner ornament */}
-        <div className="absolute top-6 left-6 ornament hidden md:block">
-          <Image src="/ornaments/flourish.svg" alt="" width={120} height={120} />
-        </div>
-        <div className="absolute top-6 right-6 ornament hidden md:block rotate-90">
-          <Image src="/ornaments/flourish.svg" alt="" width={120} height={120} />
-        </div>
       </section>
 
-      {/* TRUST / BADGES */}
-      <Section className="-mt-10">
-        <div className="card py-6 px-4 md:px-10 flex flex-wrap items-center justify-center gap-6 md:gap-10">
-          {['Nationwide','Family-led','Tailored Design','Photo & Video','Entertainment'].map((x)=> (
-            <div key={x} className="flex items-center gap-2 text-sm">
-              <span className="inline-block h-2 w-2 rounded-full bg-hqd-purple" /> {x}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* SERVICES GRID */}
-      <Section id="services" className="py-20">
+      {/* SERVICES */}
+      <Section id="services" className="py-16 md:py-20">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="h2 font-display">Our Services</h2>
-          <p className="p mt-2">Everything you need for a refined celebration.</p>
+          <p className="p mt-2">All you need for an elevated celebration.</p>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s)=> <ServiceCard key={s.title} {...s} />)}
         </div>
       </Section>
 
-      {/* PORTFOLIO STRIP */}
-      <Section id="portfolio" className="py-4">
+      {/* PORTFOLIO */}
+      <Section id="portfolio" className="py-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
           {portfolio.map((src, i)=> (
             <div key={i} className="relative aspect-[4/5] rounded-xl3 overflow-hidden">
@@ -69,27 +50,26 @@ export default function HomePage(){
         </div>
       </Section>
 
-      {/* ABOUT BLEND */}
-      <section className="relative py-24">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-hqd-lavender/40" />
-        <Section className="grid md:grid-cols-2 gap-10 items-center">
+      {/* ABOUT */}
+      <Section className="py-20">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="relative h-[360px] md:h-[460px] rounded-xl3 overflow-hidden shadow-soft">
-            <Image src="https://images.unsplash.com/photo-1521316730702-829a8e30dfd0?q=80&w=1600&auto=format&fit=crop" alt="About" fill className="object-cover" />
+            <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" alt="About" fill className="object-cover" />
           </div>
           <div>
             <h2 className="h2 font-display">About High Quality Decor</h2>
             <p className="p mt-3">We are a family-led studio crafting elevated décor with warmth and precision. Based in the U.S., serving nationwide through trusted partners and tailored logistics.</p>
-            <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
+            <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-200/80">
               {['Design Boards','Venue Walkthrough','Setup & Styling','Photo / Video','Entertainment','Gifts & Crafting'].map(x=> (
                 <li key={x} className="flex items-center gap-2"><span className="h-1.5 w-1.5 bg-hqd-purple rounded-full" /> {x}</li>
               ))}
             </ul>
           </div>
-        </Section>
-      </section>
+        </div>
+      </Section>
 
       {/* TESTIMONIALS */}
-      <Section className="py-20">
+      <Section className="py-16">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="h2 font-display">What Clients Say</h2>
           <p className="p mt-2">A few words from recent celebrations.</p>
@@ -103,7 +83,7 @@ export default function HomePage(){
                 </div>
                 <div>
                   <div className="font-medium">{t.name}</div>
-                  <div className="text-xs text-neutral-500">{t.event}</div>
+                  <div className="text-xs text-slate-300/70">{t.event}</div>
                 </div>
               </div>
               <p className="p mt-4">“{t.quote}”</p>
@@ -112,7 +92,7 @@ export default function HomePage(){
         </div>
       </Section>
 
-      {/* QUOTE FORM */}
+      {/* QUOTE */}
       <Section id="quote" className="py-24">
         <div className="max-w-3xl mx-auto card p-6 md:p-10">
           <div className="text-center">

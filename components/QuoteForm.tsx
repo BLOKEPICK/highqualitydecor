@@ -32,7 +32,7 @@ export default function QuoteForm(){
     <form onSubmit={onSubmit} className="space-y-6">
       <ol className="flex items-center justify-between text-sm">
         {steps.map(s => (
-          <li key={s} className={`flex-1 text-center ${s===step? 'text-hqd-purple font-medium' : 'text-neutral-500'}`}>{s}</li>
+          <li key={s} className={`flex-1 text-center ${s===step? 'text-hqd-lavender font-medium' : 'text-slate-400'}`}>{s}</li>
         ))}
       </ol>
 
@@ -40,7 +40,7 @@ export default function QuoteForm(){
         <div className="grid gap-4 md:grid-cols-2">
           <div>
             <label className="text-sm font-medium">Event Type</label>
-            <select required value={data.type} onChange={e=>setData({...data, type:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2">
+            <select required value={data.type} onChange={e=>setData({...data, type:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2">
               <option value="">Select</option>
               <option>Wedding</option>
               <option>Quinceañera</option>
@@ -53,19 +53,19 @@ export default function QuoteForm(){
           </div>
           <div>
             <label className="text-sm font-medium">Date</label>
-            <input required type="date" value={data.date} onChange={e=>setData({...data, date:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required type="date" value={data.date} onChange={e=>setData({...data, date:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
           <div>
             <label className="text-sm font-medium">City / State</label>
-            <input required placeholder="Miami, FL" value={data.city} onChange={e=>setData({...data, city:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required placeholder="Miami, FL" value={data.city} onChange={e=>setData({...data, city:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
           <div>
             <label className="text-sm font-medium">Guests (approx.)</label>
-            <input required type="number" min={1} placeholder="120" value={data.guests} onChange={e=>setData({...data, guests:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required type="number" min={1} placeholder="120" value={data.guests} onChange={e=>setData({...data, guests:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
           <div>
             <label className="text-sm font-medium">Budget (USD)</label>
-            <input required type="number" min={0} placeholder="5000" value={data.budget} onChange={e=>setData({...data, budget:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required type="number" min={0} placeholder="5000" value={data.budget} onChange={e=>setData({...data, budget:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
         </div>
       )}
@@ -76,7 +76,7 @@ export default function QuoteForm(){
             <div className="text-sm font-medium mb-2">Services Needed</div>
             <div className="grid sm:grid-cols-2 gap-2">
               {['Flower Bouquets','Decoration','Invitation Cards','Entertainment','Documentary','Graphic Design','Gift Wrapping','Crafting Design'].map(s => (
-                <label key={s} className="flex items-center gap-2 border rounded-xl3 px-3 py-2">
+                <label key={s} className="flex items-center gap-2 border border-white/15 rounded-xl3 px-3 py-2">
                   <input type="checkbox" checked={data.services.includes(s)} onChange={()=>toggleService(s)} /> {s}
                 </label>
               ))}
@@ -84,7 +84,7 @@ export default function QuoteForm(){
           </div>
           <div>
             <label className="text-sm font-medium">Additional Notes</label>
-            <textarea rows={4} placeholder="Theme, colors, venue, special requests…" value={data.notes} onChange={e=>setData({...data, notes:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2"></textarea>
+            <textarea rows={4} placeholder="Theme, colors, venue, special requests…" value={data.notes} onChange={e=>setData({...data, notes:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2"></textarea>
           </div>
         </div>
       )}
@@ -93,15 +93,15 @@ export default function QuoteForm(){
         <div className="grid gap-4 md:grid-cols-3">
           <div className="md:col-span-1">
             <label className="text-sm font-medium">Full Name</label>
-            <input required placeholder="Your name" value={data.name} onChange={e=>setData({...data, name:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required placeholder="Your name" value={data.name} onChange={e=>setData({...data, name:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
           <div className="md:col-span-1">
             <label className="text-sm font-medium">Email</label>
-            <input required type="email" placeholder="you@mail.com" value={data.email} onChange={e=>setData({...data, email:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required type="email" placeholder="you@mail.com" value={data.email} onChange={e=>setData({...data, email:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
           <div className="md:col-span-1">
             <label className="text-sm font-medium">Phone</label>
-            <input required placeholder="+1 (___) ___-____" value={data.phone} onChange={e=>setData({...data, phone:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required placeholder="+1 (___) ___-____" value={data.phone} onChange={e=>setData({...data, phone:e.target.value})} className="mt-2 w-full bg-transparent border border-white/15 rounded-xl3 px-3 py-2" />
           </div>
         </div>
       )}

@@ -1,6 +1,8 @@
+import Image from 'next/image'
+
 export default function Footer(){
   return (
-    <footer className="mt-20 border-t border-neutral-200">
+    <footer className="mt-20 border-t border-white/10">
       <div className="section py-10 grid md:grid-cols-3 gap-8 text-sm">
         <div>
           <div className="font-display text-lg">High Quality Decor</div>
@@ -8,7 +10,7 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Services</div>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-slate-200/80">
             <li>Flower Bouquets</li>
             <li>Decoration</li>
             <li>Invitation Cards</li>
@@ -21,14 +23,17 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Contact</div>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-slate-200/80">
             <li>Email: info@highqualitydecor.com</li>
             <li>WhatsApp: +1 (000) 000-0000</li>
-            <li>Instagram: @highquality_decor</li>
+            <li className="flex items-center gap-2">
+              <Image src="/icons/instagram.svg" alt="Instagram" width={16} height={16} />
+              <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noreferrer">@highquality_decor</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div className="section pb-8 text-xs text-neutral-500">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
+      <div className="section pb-8 text-xs text-slate-400">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
     </footer>
   )
 }

@@ -13,17 +13,19 @@ export default function Header(){
   }, [])
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition ${scrolled ? 'bg-white/90 backdrop-blur border-b border-neutral-200' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition ${scrolled ? 'glass' : 'bg-transparent'}`}>
       <div className="section h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.svg" alt="HQD" width={32} height={32} />
           <span className="font-display text-lg">High Quality Decor</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#services" className="hover:text-hqd-purple">Services</a>
-          <a href="#portfolio" className="hover:text-hqd-purple">Portfolio</a>
-          <a href="#quote" className="hover:text-hqd-purple">Get a Quote</a>
-          <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noreferrer" className="hover:text-hqd-purple">Instagram</a>
+          <a href="#services" className="hover:text-hqd-lavender">Services</a>
+          <a href="#portfolio" className="hover:text-hqd-lavender">Portfolio</a>
+          <a href="#quote" className="hover:text-hqd-lavender">Get a Quote</a>
+          <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noreferrer" className="hover:opacity-90" aria-label="Instagram">
+            <Image src="/icons/instagram.svg" alt="Instagram" width={20} height={20} />
+          </a>
         </nav>
         <a href="#quote" className="btn-primary hidden md:inline-flex">Contact</a>
       </div>
