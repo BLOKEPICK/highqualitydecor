@@ -1,18 +1,18 @@
-# High Quality Decor — Dark v6 (Redesigned Services)
+# High Quality Decor — Aurora Luxe (v7) — BRAND NEW
 
-- Sección **Our Services** totalmente nueva:
-  - Layout con **intro sticky + tabs** por categoría.
-  - **Tarjetas con icono (SVG)** y descripciones claras.
-  - Grid responsive distinto al estilo anterior.
-- Mantiene header/hero dark y portafolio masonry.
-- Listo para Next.js 14 + Vercel.
+Diseño totalmente nuevo (navegación dock móvil, hero con chips, **servicios en carrusel horizontal**, paquetes, galería y form con stepper).
 
 ## Pasos
 1) Sube este ZIP al repo (reemplaza lo anterior).
 2) `npm install`
-3) Deploy en Vercel.
+3) Deploy en Vercel (Next.js 14 + App Router).
 
-## Dónde editar
-- Tabs y servicios: `components/ServiceShowcase.tsx` (SVGs en `/public/icons/services/`).
-- Imágenes: `app/page.tsx` (Unsplash).
-- WhatsApp/Email: `components/Footer.tsx` y CTAs.
+## Personalización
+- **Servicios (tarjetas)**: `components/ServicesScroller.tsx`
+- **Paquetes**: `components/Packages.tsx`
+- **Form**: `components/QuoteForm.tsx`
+- **Colores/Fuentes**: `tailwind.config.ts`, `app/globals.css`, `app/layout.tsx`
+
+## Notas
+- Icono de Instagram en header y **dock móvil**.
+- Todas las imágenes son de Unsplash y se cargan con `next/image`.

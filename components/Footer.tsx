@@ -10,7 +10,7 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Services</div>
-          <ul className="space-y-2 text-slate-200/80">
+          <ul className="space-y-2 text-aurora-white/80">
             <li>Flower Bouquets</li>
             <li>Decoration</li>
             <li>Invitation Cards</li>
@@ -23,7 +23,7 @@ export default function Footer(){
         </div>
         <div>
           <div className="font-medium mb-3">Contact</div>
-          <ul className="space-y-2 text-slate-200/80">
+          <ul className="space-y-2 text-aurora-white/80">
             <li>Email: info@highqualitydecor.com</li>
             <li>WhatsApp: +1 (000) 000-0000</li>
             <li className="flex items-center gap-2">
@@ -33,7 +33,7 @@ export default function Footer(){
           </ul>
         </div>
       </div>
-      <div className="section pb-8 text-xs text-slate-400">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
+      <div className="section pb-8 text-xs text-aurora-white/60">© {new Date().getFullYear()} High Quality Decor. All rights reserved.</div>
     </footer>
   )
 }

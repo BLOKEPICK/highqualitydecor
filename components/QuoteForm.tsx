@@ -15,26 +15,23 @@ export default function QuoteForm(){
 
   const next = ()=> setStep(steps[Math.min(steps.indexOf(step)+1, steps.length-1)])
   const prev = ()=> setStep(steps[Math.max(steps.indexOf(step)-1, 0)])
-  const toggleService = (s:string)=> setData(d=>({...d, services: d.services.includes(s) ? d.services.filter(x=>x!==s) : [...d.services, s]}))
 
   async function onSubmit(e: React.FormEvent){
     e.preventDefault()
     setLoading(true)
-    try{
-      await new Promise(r=>setTimeout(r,600))
-      alert('Thank you! We will get back to you within 24 hours.')
-    } finally {
-      setLoading(false)
-    }
+    try { await new Promise(r=>setTimeout(r,600)); alert('Thank you! We will get back to you within 24 hours.') }
+    finally { setLoading(false) }
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
-      <ol className="flex items-center justify-between text-sm">
-        {steps.map(s => (
-          <li key={s} className={`flex-1 text-center ${s===step? 'text-hqd-lilac font-medium' : 'text-slate-400'}`}>{s}</li>
-        ))}
-      </ol>
+      {/* Stepper */}
+      <div className="w-full h-2 bg-white/10 rounded-pill overflow-hidden">
+        <div className="h-full bg-aurora-purple transition" style={{width: step==='Event' ? '33%' : step==='Details' ? '66%' : '100%'}} />
+      </div>
+      <div className="flex items-center justify-between text-sm text-aurora-white/70">
+        {steps.map(s => <span key={s} className={s===step? 'text-white' : ''}>{s}</span>)}
+      </div>
 
       {step==='Event' && (
         <div className="grid gap-4 md:grid-cols-2">
@@ -77,7 +74,7 @@ export default function QuoteForm(){
             <div className="grid sm:grid-cols-2 gap-2">
               {['Flower Bouquets','Decoration','Invitation Cards','Entertainment','Documentary','Graphic Design','Gift Wrapping','Crafting Design'].map(s => (
                 <label key={s} className="flex items-center gap-2 border border-white/15 rounded-xl3 px-3 py-2">
-                  <input type="checkbox" checked={data.services.includes(s)} onChange={()=>toggleService(s)} /> {s}
+                  <input type="checkbox" onChange={e=> e.target.checked ? setData(d=>({...d, services:[...d.services, s]})) : setData(d=>({...d, services:d.services.filter(x=>x!==s)}))} /> {s}
                 </label>
               ))}
             </div>
