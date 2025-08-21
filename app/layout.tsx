@@ -9,21 +9,16 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://highqualitydecor.com'),
-  title: 'High Quality Decor | Elegant Family Events',
-  description: 'Premium event décor, bouquets, invitations, entertainment, and documentary services. Nationwide in the U.S.',
-  openGraph: {
-    title: 'High Quality Decor',
-    description: 'Elegant décor for unforgettable family moments.',
-    url: 'https://highqualitydecor.com',
-    type: 'website'
-  },
+  title: 'High Quality Decor — Premium Family Events',
+  description: 'Elegant décor, floral design, invitations, entertainment, and documentary services.',
+  openGraph: { title: 'High Quality Decor', description: 'Premium décor for unforgettable moments.', type: 'website' },
   icons: { icon: '/logo.svg' }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col font-[var(--font-inter)]">
+      <body className="min-h-screen flex flex-col font-sans">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

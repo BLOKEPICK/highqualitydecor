@@ -8,16 +8,23 @@
 }
 
 html, body { height: 100%; }
-body { color: var(--fg); background: var(--bg); }
+body { @apply bg-hqd-pearl text-hqd-ink; }
 
-/* Typography helpers */
-.h1 { @apply text-4xl md:text-5xl font-semibold tracking-tight; }
+/* Type scale */
+.h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight; }
 .h2 { @apply text-3xl md:text-4xl font-semibold; }
 .h3 { @apply text-2xl font-semibold; }
 .p  { @apply text-base leading-relaxed text-neutral-700; }
 
-.btn-primary { @apply inline-flex items-center justify-center rounded-xl3 bg-hqd-purple text-white px-5 py-3 font-medium shadow-soft transition hover:opacity-90; }
-.btn-secondary { @apply inline-flex items-center justify-center rounded-xl3 border border-hqd-purple text-hqd-purple px-5 py-3 font-medium transition hover:bg-hqd-purple/10; }
+/* Buttons */
+.btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl3 font-medium transition; }
+.btn-primary { @apply btn bg-hqd-purple text-white shadow-soft hover:opacity-90; }
+.btn-ghost { @apply btn border border-white/30 text-white hover:bg-white/10; }
+.btn-outline { @apply btn border border-hqd-purple text-hqd-purple hover:bg-hqd-purple/10; }
 
+/* Cards & sections */
 .card { @apply rounded-xl3 bg-white shadow-soft border border-neutral-100; }
-.section { @apply max-w-6xl mx-auto px-4 sm:px-6; }
+.section { @apply max-w-7xl mx-auto px-4 sm:px-6; }
+
+/* Ornament helpers */
+.ornament { @apply pointer-events-none select-none opacity-60; }

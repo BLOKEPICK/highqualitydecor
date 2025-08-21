@@ -1,36 +1,27 @@
 'use client'
 import { useState } from 'react'
 
-const steps = ['Event', 'Details', 'Contact'] as const
+const steps = ['Event','Details','Contact'] as const
 type Step = typeof steps[number]
 
 export default function QuoteForm(){
   const [step, setStep] = useState<Step>('Event')
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({
-    type: '', date: '', city: '', guests: '', budget: '',
+    type:'', date:'', city:'', guests:'', budget:'',
     services: [] as string[],
-    notes: '', name: '', email: '', phone: ''
+    notes:'', name:'', email:'', phone:''
   })
 
-  function next(){
-    const i = steps.indexOf(step)
-    setStep(steps[Math.min(i+1, steps.length-1)])
-  }
-  function prev(){
-    const i = steps.indexOf(step)
-    setStep(steps[Math.max(i-1, 0)])
-  }
-  function toggleService(s: string){
-    setData(d => ({...d, services: d.services.includes(s) ? d.services.filter(x=>x!==s) : [...d.services, s]}))
-  }
+  const next = ()=> setStep(steps[Math.min(steps.indexOf(step)+1, steps.length-1)])
+  const prev = ()=> setStep(steps[Math.max(steps.indexOf(step)-1, 0)])
+  const toggleService = (s:string)=> setData(d=>({...d, services: d.services.includes(s) ? d.services.filter(x=>x!==s) : [...d.services, s]}))
 
   async function onSubmit(e: React.FormEvent){
     e.preventDefault()
     setLoading(true)
-    try {
-      // TODO: replace with your backend endpoint or Formspree
-      await new Promise(r => setTimeout(r, 600))
+    try{
+      await new Promise(r=>setTimeout(r,600))
       alert('Thank you! We will get back to you within 24 hours.')
     } finally {
       setLoading(false)
@@ -45,7 +36,7 @@ export default function QuoteForm(){
         ))}
       </ol>
 
-      {step === 'Event' && (
+      {step==='Event' && (
         <div className="grid gap-4 md:grid-cols-2">
           <div>
             <label className="text-sm font-medium">Event Type</label>
@@ -79,7 +70,7 @@ export default function QuoteForm(){
         </div>
       )}
 
-      {step === 'Details' && (
+      {step==='Details' && (
         <div className="space-y-4">
           <div>
             <div className="text-sm font-medium mb-2">Services Needed</div>
@@ -98,7 +89,7 @@ export default function QuoteForm(){
         </div>
       )}
 
-      {step === 'Contact' && (
+      {step==='Contact' && (
         <div className="grid gap-4 md:grid-cols-3">
           <div className="md:col-span-1">
             <label className="text-sm font-medium">Full Name</label>
@@ -110,13 +101,13 @@ export default function QuoteForm(){
           </div>
           <div className="md:col-span-1">
             <label className="text-sm font-medium">Phone</label>
-            <input required placeholder="+1 (___) ___‑____" value={data.phone} onChange={e=>setData({...data, phone:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
+            <input required placeholder="+1 (___) ___-____" value={data.phone} onChange={e=>setData({...data, phone:e.target.value})} className="mt-2 w-full border rounded-xl3 px-3 py-2" />
           </div>
         </div>
       )}
 
       <div className="flex items-center justify-between">
-        <button type="button" onClick={prev} disabled={step==='Event'} className="btn-secondary disabled:opacity-40">Back</button>
+        <button type="button" onClick={prev} disabled={step==='Event'} className="btn-outline disabled:opacity-40">Back</button>
         {step !== 'Contact' ? (
           <button type="button" onClick={next} className="btn-primary">Next</button>
         ) : (

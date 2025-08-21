@@ -1,9 +1,9 @@
 export default function Footer(){
   return (
-    <footer className="mt-10 border-t border-neutral-100">
+    <footer className="mt-20 border-t border-neutral-200">
       <div className="section py-10 grid md:grid-cols-3 gap-8 text-sm">
         <div>
-          <div className="font-[var(--font-playfair)] text-lg">High Quality Decor</div>
+          <div className="font-display text-lg">High Quality Decor</div>
           <p className="p mt-2">Premium décor, bouquets, invitations, entertainment, and documentary services. Nationwide in the U.S.</p>
         </div>
         <div>
@@ -23,7 +23,7 @@ export default function Footer(){
           <div className="font-medium mb-3">Contact</div>
           <ul className="space-y-2">
             <li>Email: info@highqualitydecor.com</li>
-            <li>WhatsApp: +1 (000) 000‑0000</li>
+            <li>WhatsApp: +1 (000) 000-0000</li>
             <li>Instagram: @highquality_decor</li>
           </ul>
         </div>
