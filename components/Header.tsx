@@ -29,10 +29,6 @@ export default function Header(){
             </a>
           </div>
         </div>
-        {/* Secondary line with CTA */}
-        <div className="hidden md:flex items-center justify-center py-2">
-          <a href="#quote" className="btn-primary">Reserve Your Date</a>
-        </div>
       </div>
 
       {/* Mobile drawer */}

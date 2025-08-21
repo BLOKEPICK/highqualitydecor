@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --ink: #EDECF5;
-}
+:root { --ink: #EDECF5; }
 
 html, body { height: 100%; }
 body {
@@ -14,19 +12,23 @@ body {
     radial-gradient(700px 380px at 100% 120%, rgba(111,45,189,.22), transparent 60%);
 }
 
-/* Type scale */
 .h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight; }
 .h2 { @apply text-3xl md:text-4xl font-semibold; }
 .h3 { @apply text-2xl font-semibold; }
 .p  { @apply text-base leading-relaxed text-slate-200/85; }
 
-/* Buttons */
 .btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-xl3 font-medium transition; }
 .btn-primary { @apply btn bg-hqd-purple text-white shadow-soft hover:opacity-95; }
 .btn-ghost { @apply btn border border-white/20 text-white hover:bg-white/10; }
 .btn-outline { @apply btn border border-hqd-purple text-hqd-purple hover:bg-hqd-purple/10; }
 
-/* UI */
 .card { @apply rounded-xl3 bg-hqd-panel/70 backdrop-blur border border-white/10; }
 .section { @apply max-w-7xl mx-auto px-4 sm:px-6; }
 .divider { @apply w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent; }
+
+/* Services stripe styles */
+.services-tabs { @apply inline-flex gap-2 p-1 rounded-xl3 border border-white/10 bg-white/5; }
+.services-tabs button { @apply px-4 py-2 rounded-xl3 text-sm; }
+.services-tabs .active { @apply bg-hqd-purple text-white; }
+.service-card { @apply relative overflow-hidden rounded-xl3 border border-white/10 bg-gradient-to-b from-white/[.06] to-white/[.02]; }
+.service-icon { @apply h-10 w-10 p-2 rounded-full bg-white/10 border border-white/15; }
