@@ -1,6 +1,6 @@
+
 import Link from 'next/link'
 import Image from 'next/image'
-
 export default function Header(){
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-aurora-ink/50 border-b border-white/10">

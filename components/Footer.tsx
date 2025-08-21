@@ -1,5 +1,5 @@
-import Image from 'next/image'
 
+import Image from 'next/image'
 export default function Footer(){
   return (
     <footer className="mt-20 border-t border-white/10">
@@ -11,14 +11,8 @@ export default function Footer(){
         <div>
           <div className="font-medium mb-3">Services</div>
           <ul className="space-y-2 text-aurora-white/80">
-            <li>Flower Bouquets</li>
-            <li>Decoration</li>
-            <li>Invitation Cards</li>
-            <li>Entertainment</li>
-            <li>Documentary</li>
-            <li>Graphic Design</li>
-            <li>Gift Wrapping</li>
-            <li>Crafting Design</li>
+            <li>Flower Bouquets</li><li>Decoration</li><li>Invitation Cards</li><li>Entertainment</li>
+            <li>Documentary</li><li>Graphic Design</li><li>Gift Wrapping</li><li>Crafting Design</li>
           </ul>
         </div>
         <div>
