@@ -1,28 +1,34 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import { Cinzel, Manrope } from 'next/font/google'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-
-const cinzel = Cinzel({ subsets: ['latin'], weight: ['400','600','700'], variable: '--font-cinzel' })
-const manrope = Manrope({ subsets: ['latin'], weight: ['400','600','700'], variable: '--font-manrope' })
+import type { Metadata } from 'next';
+import './globals.css';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
+  title: 'High Quality Decor – Event Decor, Flowers, Film & Design',
+  description: 'Elegant, family-first event decor across the United States: flowers, full decoration, invitation cards, entertainment, documentary photo/video, and graphic design.',
   metadataBase: new URL('https://highqualitydecor.com'),
-  title: 'High Quality Decor — Serenade',
-  description: 'A light, editorial event décor studio for family moments across the U.S.',
-  openGraph: { title: 'High Quality Decor', description: 'Premium décor for unforgettable moments.', type: 'website' },
-  icons: { icon: '/logo.svg' }
-}
+  openGraph: {
+    title: 'High Quality Decor',
+    description: 'Elegant, family-first event decor across the United States.',
+    url: 'https://highqualitydecor.com',
+    siteName: 'High Quality Decor',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    locale: 'en_US',
+    type: 'website',
+  },
+  alternates: { canonical: 'https://highqualitydecor.com' }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${manrope.variable}`}>
-      <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
+    <html lang="en">
+      <body>
+        <Navbar />
+        {children}
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
-  )
+  );
 }
