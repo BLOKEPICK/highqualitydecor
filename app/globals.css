@@ -2,21 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base */
 html, body { height: 100%; }
-:root { --ink: #FCFCFF; }
-body { @apply bg-aurora-night text-[var(--ink)] font-sans; background-image: radial-gradient(1200px 600px at 110% -10%, rgba(108,43,217,.25), transparent 60%), radial-gradient(900px 420px at -10% 120%, rgba(91,33,182,.22), transparent 60%); }
+:root { --ink: #1A1A1A; }
+body {
+  @apply bg-white text-[var(--ink)] font-sans;
+  background-image:
+    radial-gradient(1000px 500px at 110% -10%, rgba(111,45,189,.06), transparent 60%),
+    radial-gradient(800px 420px at -10% 120%, rgba(83,32,143,.05), transparent 60%);
+}
+
+/* Type scale */
 .h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight; }
 .h2 { @apply text-3xl md:text-4xl font-semibold; }
 .h3 { @apply text-2xl font-semibold; }
-.p  { @apply text-base leading-relaxed text-aurora-white/80; }
+.p  { @apply text-base leading-relaxed text-brand-gray; }
+
+/* Buttons */
 .btn { @apply inline-flex items-center justify-center px-5 py-3 rounded-pill font-medium transition; }
-.btn-primary { @apply btn bg-aurora-purple text-white shadow-[0_14px_36px_rgba(0,0,0,.28)] hover:opacity-95; }
-.btn-ghost { @apply btn border border-white/20 text-white hover:bg-white/10; }
-.btn-outline { @apply btn border border-aurora-purple text-aurora-purple hover:bg-aurora-purple/10; }
+.btn-primary { @apply btn bg-brand-purple text-white shadow-soft hover:opacity-95; }
+.btn-ghost { @apply btn border border-gray-200 text-brand-ink hover:bg-gray-50; }
+.btn-outline { @apply btn border border-brand-purple text-brand-purple hover:bg-brand-purple/10; }
+
+/* Components */
 .section { @apply max-w-7xl mx-auto px-4 sm:px-6; }
-.card { @apply rounded-xl3 bg-aurora-panel/70 backdrop-blur border border-white/10; }
-.chips { @apply inline-flex gap-2 p-1 rounded-pill border border-white/10 bg-white/5; }
-.chip { @apply px-4 py-2 rounded-pill text-sm; }
-.chip-active { @apply bg-aurora-purple text-white; }
-.dock { @apply fixed bottom-3 inset-x-3 z-50 bg-aurora-ink/70 border border-white/10 backdrop-blur rounded-pill flex items-center justify-around py-2; }
-.dock a { @apply flex flex-col items-center text-[11px] text-aurora-white/70; }
+.card { @apply rounded-xl3 bg-white shadow-soft border border-gray-200; }
+.badge { @apply inline-flex items-center gap-2 text-xs px-3 py-1 rounded-pill bg-brand-lavender text-brand-ink; }
+.navlink { @apply px-3 py-2 rounded-pill hover:bg-gray-100; }
+
+/* Decorative SVG */
+.orn { position: absolute; pointer-events: none; opacity:.4 }

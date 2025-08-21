@@ -1,18 +1,18 @@
-# High Quality Decor — Aurora Luxe (v7) — BRAND NEW
 
-Diseño totalmente nuevo (navegación dock móvil, hero con chips, **servicios en carrusel horizontal**, paquetes, galería y form con stepper).
+# High Quality Decor — Luminosa (v8) — LIGHT THEME
+
+Diseño claro / elegante, distinto a los anteriores (nada dark). Incluye:
+- Hero claro, tarjetas de servicios **numeradas**, tira de Instagram, About, Testimonios y Form.
+- Tipografías nuevas: **Playfair Display** (títulos) + **Inter** (texto).
+- Paleta light con acentos morados suaves.
 
 ## Pasos
-1) Sube este ZIP al repo (reemplaza lo anterior).
+1) Sube el contenido del ZIP al repo.
 2) `npm install`
-3) Deploy en Vercel (Next.js 14 + App Router).
+3) Deploy en Vercel (Next 14).
 
-## Personalización
-- **Servicios (tarjetas)**: `components/ServicesScroller.tsx`
-- **Paquetes**: `components/Packages.tsx`
-- **Form**: `components/QuoteForm.tsx`
-- **Colores/Fuentes**: `tailwind.config.ts`, `app/globals.css`, `app/layout.tsx`
-
-## Notas
-- Icono de Instagram en header y **dock móvil**.
-- Todas las imágenes son de Unsplash y se cargan con `next/image`.
+## Edición
+- Servicios: `components/ServiceTiles.tsx`
+- Colores/Fuentes: `tailwind.config.ts` y `app/layout.tsx`
+- Form: `components/QuoteForm.tsx`
+- Instagram: `public/icons/instagram.svg` y enlaces en Header/Footer/IG strip.
