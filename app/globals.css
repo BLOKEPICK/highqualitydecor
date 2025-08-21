@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #111217;
+}
+
+html, body { height: 100%; }
+body { color: var(--fg); background: var(--bg); }
+
+/* Typography helpers */
+.h1 { @apply text-4xl md:text-5xl font-semibold tracking-tight; }
+.h2 { @apply text-3xl md:text-4xl font-semibold; }
+.h3 { @apply text-2xl font-semibold; }
+.p  { @apply text-base leading-relaxed text-neutral-700; }
+
+.btn-primary { @apply inline-flex items-center justify-center rounded-xl3 bg-hqd-purple text-white px-5 py-3 font-medium shadow-soft transition hover:opacity-90; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-xl3 border border-hqd-purple text-hqd-purple px-5 py-3 font-medium transition hover:bg-hqd-purple/10; }
+
+.card { @apply rounded-xl3 bg-white shadow-soft border border-neutral-100; }
+.section { @apply max-w-6xl mx-auto px-4 sm:px-6; }
