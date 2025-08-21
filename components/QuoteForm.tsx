@@ -19,9 +19,9 @@ export default function QuoteForm(){
   const toggleService = (s:string)=> setData(d=>({...d, services: d.services.includes(s) ? d.services.filter(x=>x!==s) : [...d.services, s]}))
 
   async function onSubmit(e: React.FormEvent){
-    e.preventDefault(); setLoading(True)
+    e.preventDefault(); setLoading(true)
     try{ await new Promise(r=>setTimeout(r,600)); alert('Thank you! We will get back to you within 24 hours.') }
-    finally{ setLoading(False) }
+    finally{ setLoading(false) }
   }
 
   return (
