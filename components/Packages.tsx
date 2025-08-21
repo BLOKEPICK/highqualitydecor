@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function Pkg({ title, price, features, href }:{ title:string; price:string; features:string[]; href:string; }) {
+function Pkg({ title, price, features, pkgKey }:{ title:string; price:string; features:string[]; pkgKey:string; }) {
   return (
     <div className="card pkg">
       <div className="pkg-header">
@@ -10,7 +10,13 @@ function Pkg({ title, price, features, href }:{ title:string; price:string; feat
       <ul className="pkg-list">
         {features.map((f,i)=>(<li key={i}>{f}</li>))}
       </ul>
-      <Link href={href} className="btn btn-primary" style={{width:'100%'}}>Request this package</Link>
+      <Link
+        href={{ pathname: '/contact', query: { package: pkgKey } }}
+        className="btn btn-primary"
+        style={{width:'100%'}}
+      >
+        Request this package
+      </Link>
     </div>
   );
 }
@@ -27,7 +33,7 @@ export default function Packages() {
           'Coordination call (30 min)',
           'Delivery & setup (local)',
         ]}
-        href="/contact?package=Essential"
+        pkgKey="Essential"
       />
       <Pkg
         title="Signature"
@@ -38,7 +44,7 @@ export default function Packages() {
           'Invitation design (digital)',
           'On-site coordination (4h)',
         ]}
-        href="/contact?package=Signature"
+        pkgKey="Signature"
       />
       <Pkg
         title="Luxe"
@@ -49,7 +55,7 @@ export default function Packages() {
           'Entertainment booking support',
           'Photo/Video documentary (highlights)',
         ]}
-        href="/contact?package=Luxe"
+        pkgKey="Luxe"
       />
     </div>
   );
