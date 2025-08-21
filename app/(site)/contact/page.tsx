@@ -9,6 +9,9 @@ export default function ContactPage() {
         <div className="card">
           <ContactForm />
         </div>
+        <div className="banner" style={{marginTop:16}}>
+          Prefer WhatsApp? Set your number in <code>NEXT_PUBLIC_WHATSAPP</code> and a floating button will appear site-wide.
+        </div>
       </div>
     </main>
   );

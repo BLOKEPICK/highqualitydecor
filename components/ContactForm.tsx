@@ -1,9 +1,18 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle'|'loading'|'success'|'error'>('idle');
   const [message, setMessage] = useState('');
+
+  useEffect(()=>{
+    const url = new URL(window.location.href);
+    const pre = url.searchParams.get('package') || url.searchParams.get('service');
+    if (pre) {
+      const select = document.querySelector('select[name="service"]') as HTMLSelectElement | null;
+      if (select) select.value = pre;
+    }
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -42,13 +51,16 @@ export default function ContactForm() {
       <div className="grid cols-2">
         <input className="input" name="phone" placeholder="Phone (optional)" />
         <select className="select" name="service">
-          <option value="">Select a service</option>
+          <option value="">Select a service / package</option>
           <option>Flower Bouquets</option>
           <option>Decoration</option>
           <option>Invitation Cards</option>
           <option>Entertainment</option>
           <option>Documentary</option>
           <option>Graphic Design</option>
+          <option>Essential</option>
+          <option>Signature</option>
+          <option>Luxe</option>
         </select>
       </div>
       <div className="grid cols-2">
