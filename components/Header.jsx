@@ -1,9 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
+function Portal({ children }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+  return createPortal(children, document.body);
+}
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const backdropRef = useRef(null);
   const openBtnRef = useRef(null);
 
   const toggle = () => setOpen(v => !v);
@@ -23,11 +30,6 @@ export default function Header() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
-
-  // Click backdrop to close
-  const onBackdropClick = (e) => {
-    if (e.target === e.currentTarget) close();
-  };
 
   // Return focus to hamburger
   useEffect(() => {
@@ -64,31 +66,32 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop with INLINE background enforcement */}
-      <div
-        id="mobile-backdrop"
-        ref={backdropRef}
-        className={`backdrop ${open ? "open" : ""}`}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="mobile-menu-title"
-        onClick={onBackdropClick}
-        style={{ background: open ? "#000" : "transparent" }}
-      >
-        <aside className={`sidepanel ${open ? "open" : ""}`}>
-          <div className="panel-header">
-            <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
-            <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
-          </div>
+      {/* Backdrop + panel rendered at <body> level via portal (escapa cualquier z-index) */}
+      <Portal>
+        <div
+          id="mobile-backdrop"
+          className={`backdrop ${open ? "open" : ""}`}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-menu-title"
+          onClick={(e) => { if (e.target === e.currentTarget) close(); }}
+          style={{ background: open ? "#000" : "transparent" }}
+        >
+          <aside className={`sidepanel ${open ? "open" : ""}`}>
+            <div className="panel-header">
+              <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
+              <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
+            </div>
 
-          <nav className="panel-nav" aria-label="Navegación móvil">
-            <a href="/#servicios" onClick={close}>Servicios</a>
-            <a href="/#proyectos" onClick={close}>Proyectos</a>
-            <a href="/#nosotros" onClick={close}>Nosotros</a>
-            <a className="cta" href="/#contacto" onClick={close}>Contacto</a>
-          </nav>
-        </aside>
-      </div>
+            <nav className="panel-nav" aria-label="Navegación móvil">
+              <a href="/#servicios" onClick={close}>Servicios</a>
+              <a href="/#proyectos" onClick={close}>Proyectos</a>
+              <a href="/#nosotros" onClick={close}>Nosotros</a>
+              <a className="cta" href="/#contacto" onClick={close}>Contacto</a>
+            </nav>
+          </aside>
+        </div>
+      </Portal>
     </header>
   );
 }
