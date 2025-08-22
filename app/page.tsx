@@ -50,22 +50,22 @@ export default function Home(){
             <h2>¿Por qué elegirnos para tu evento?</h2>
             <div className="why-grid">
               <div className="why-item">
-                <div className="why-icon"><Image src="/icons/flower.svg" alt="" width={28} height={28} aria-hidden/></div>
+                <div className="why-icon"><img src="/icons/flower.svg" alt="" width={28} height={28} aria-hidden/></div>
                 <h3>Atención Personalizada</h3>
                 <p>Cada celebración es única. Diseñamos tu evento a medida, escuchando tu visión y plasmándola en cada detalle.</p>
               </div>
               <div className="why-item">
-                <div className="why-icon"><Image src="/icons/brush.svg" alt="" width={28} height={28} aria-hidden/></div>
+                <div className="why-icon"><img src="/icons/brush.svg" alt="" width={28} height={28} aria-hidden/></div>
                 <h3>Diseño con Estilo</h3>
                 <p>Ambientes sofisticados que combinan creatividad, tendencia y elegancia atemporal.</p>
               </div>
               <div className="why-item">
-                <div className="why-icon"><Image src="/icons/calendar.svg" alt="" width={28} height={28} aria-hidden/></div>
+                <div className="why-icon"><img src="/icons/calendar.svg" alt="" width={28} height={28} aria-hidden/></div>
                 <h3>Organización Integral</h3>
                 <p>De la planificación al montaje final, coordinamos cada etapa para que disfrutes sin preocupaciones.</p>
               </div>
               <div className="why-item">
-                <div className="why-icon"><Image src="/icons/camera.svg" alt="" width={28} height={28} aria-hidden/></div>
+                <div className="why-icon"><img src="/icons/camera.svg" alt="" width={28} height={28} aria-hidden/></div>
                 <h3>Experiencias Memorables</h3>
                 <p>Más que eventos, creamos recuerdos inolvidables que quedarán contigo y tus invitados.</p>
               </div>
@@ -79,37 +79,37 @@ export default function Home(){
             <h2>Nuestros Servicios</h2>
             <div className="services-grid">
               <article className="service">
-                <Image src="/icons/flower.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/flower.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Flower Bouquets</h3>
                 <p>Arreglos florales únicos y personalizados que realzan la esencia de cada evento.</p>
               </article>
               <article className="service">
-                <Image src="/icons/brush.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/brush.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Decoration</h3>
                 <p>Diseño y ambientación de espacios con un estilo sofisticado y memorable.</p>
               </article>
               <article className="service">
-                <Image src="/icons/invite.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/invite.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Invitation Cards</h3>
                 <p>Invitaciones personalizadas que comunican el tono y la elegancia de tu celebración.</p>
               </article>
               <article className="service">
-                <Image src="/icons/map-pin.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/map-pin.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Venue Selection</h3>
                 <p>Asesoría y selección del lugar ideal para que tu evento tenga el escenario perfecto.</p>
               </article>
               <article className="service">
-                <Image src="/icons/music.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/music.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Entertainment</h3>
                 <p>Coordinamos música, shows y experiencias para garantizar la mejor atmósfera.</p>
               </article>
               <article className="service">
-                <Image src="/icons/camera.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/camera.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Documentary</h3>
                 <p>Fotografía y filmación profesional para capturar cada momento especial.</p>
               </article>
               <article className="service">
-                <Image src="/icons/scissors.svg" alt="" width={28} height={28} className="service-icon" />
+                <img src="/icons/scissors.svg" alt="" width={28} height={28} className="service-icon" />
                 <h3>Crafting Design</h3>
                 <p>Diseños exclusivos en camisetas y artículos personalizados para tu celebración.</p>
               </article>
@@ -222,10 +222,10 @@ export default function Home(){
             <p>Puedes escribirnos directamente en redes o mediante el formulario de reserva.</p>
             <div className="social-inline">
               <a className="icon-btn" href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noopener" aria-label="Instagram">
-                <Image src="/icons/instagram.svg" alt="" width={20} height={20} aria-hidden/>
+                <img src="/icons/instagram.svg" alt="" width={20} height={20} aria-hidden/>
               </a>
               <a className="icon-btn" href="https://www.facebook.com/railedaris.soto.9/" target="_blank" rel="noopener" aria-label="Facebook">
-                <Image src="/icons/facebook.svg" alt="" width={20} height={20} aria-hidden/>
+                <img src="/icons/facebook.svg" alt="" width={20} height={20} aria-hidden/>
               </a>
             </div>
           </div>
