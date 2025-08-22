@@ -1,1 +1,0 @@
-export function Ribbon(props: React.SVGProps<SVGSVGElement>){return(<svg viewBox='0 0 360 60' width='100%' height='60' preserveAspectRatio='none' {...props}><path d='M0,40 C60,20 120,60 180,40 C240,20 300,60 360,40 L360,60 L0,60 Z' fill='currentColor'/></svg>);}

@@ -1,4 +1,21 @@
-# High Quality Decor — Website V2 (Next.js)
+# High Quality Decor — Next.js (App Router)
 
-Deploy on Vercel. See `.env.example`. Replace images in `/public/images`. Paste your IG widget into `/public/ig-widget.html`.
-© 2025 High Quality Decor
+Sitio estático premium para una diseñadora de eventos.
+Listo para Vercel. Secciones: Hero, Why Choose Us, Services, Portfolio (botón a Instagram),
+Proceso, FAQ, Book Now (multi-step), Footer.
+
+## Ejecutar localmente
+```bash
+npm install
+npm run dev
+```
+
+## Deploy en Vercel
+- Crea un nuevo proyecto y súbelo desde este repositorio ZIP, o conecta tu Git.
+- Vercel detectará Next.js automáticamente.
+- Opcional: configura variables si conectas el formulario a un email/CRM en `/app/api/book/route.ts`.
+
+## Notas
+- Imágenes en `public/images` en formato `.webp`.
+- Íconos SVG en `public/icons`.
+- Tipografías vía `next/font` (Cormorant Garamond + Poppins).
