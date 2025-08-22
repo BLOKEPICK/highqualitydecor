@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export default function Footer(){
   return (
     <footer className="site-footer">
@@ -18,10 +16,10 @@ export default function Footer(){
         </nav>
         <div className="footer-social">
           <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noopener" aria-label="Instagram">
-            <Image src="/icons/instagram.svg" alt="" width={20} height={20} aria-hidden="true" />
+            <img src="/icons/instagram.svg" alt="" width={20} height={20} aria-hidden="true" />
           </a>
           <a href="https://www.facebook.com/railedaris.soto.9/" target="_blank" rel="noopener" aria-label="Facebook">
-            <Image src="/icons/facebook.svg" alt="" width={20} height={20} aria-hidden="true" />
+            <img src="/icons/facebook.svg" alt="" width={20} height={20} aria-hidden="true" />
           </a>
         </div>
       </div>

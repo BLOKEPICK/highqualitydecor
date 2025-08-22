@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Header from '../components/Header'
 import BookForm from '../components/BookForm'
 import Footer from '../components/Footer'
@@ -20,7 +19,10 @@ export default function Home(){
               </div>
             </div>
             <div className="hero-media">
-              <Image src="/images/hero.webp" alt="Decoración elegante de evento" width={1600} height={1000} priority />
+              <picture>
+                <source srcSet="/images/hero.webp" type="image/webp" />
+                <img src="/images/hero.png" alt="Decoración elegante de evento" loading="eager" />
+              </picture>
             </div>
           </div>
         </section>
@@ -34,7 +36,10 @@ export default function Home(){
               <p>Nuestro equipo combina diseño floral, ambientación, invitaciones y producción audiovisual para contar historias únicas.</p>
             </div>
             <div className="about-media">
-              <Image src="/images/about.webp" alt="Equipo de diseño preparando la decoración" width={1400} height={900} />
+              <picture>
+              <source srcSet="/images/about.webp" type="image/webp" />
+              <img src="/images/about.png" alt="Equipo de diseño preparando la decoración" loading="lazy" />
+            </picture>
             </div>
           </div>
         </section>
@@ -117,12 +122,30 @@ export default function Home(){
           <div className="container">
             <h2>Nuestro Trabajo</h2>
             <div className="portfolio-grid">
-              <Image src="/images/portfolio-1.webp" alt="Portafolio 1" width={1200} height={800} />
-              <Image src="/images/portfolio-2.webp" alt="Portafolio 2" width={1200} height={800} />
-              <Image src="/images/portfolio-3.webp" alt="Portafolio 3" width={1200} height={800} />
-              <Image src="/images/portfolio-4.webp" alt="Portafolio 4" width={1200} height={800} />
-              <Image src="/images/portfolio-5.webp" alt="Portafolio 5" width={1200} height={800} />
-              <Image src="/images/portfolio-6.webp" alt="Portafolio 6" width={1200} height={800} />
+              <picture>
+              <source srcSet="/images/portfolio-1.webp" type="image/webp" />
+              <img src="/images/portfolio-1.png" alt="Portafolio 1" loading="lazy" />
+            </picture>
+              <picture>
+              <source srcSet="/images/portfolio-2.webp" type="image/webp" />
+              <img src="/images/portfolio-2.png" alt="Portafolio 2" loading="lazy" />
+            </picture>
+              <picture>
+              <source srcSet="/images/portfolio-3.webp" type="image/webp" />
+              <img src="/images/portfolio-3.png" alt="Portafolio 3" loading="lazy" />
+            </picture>
+              <picture>
+              <source srcSet="/images/portfolio-4.webp" type="image/webp" />
+              <img src="/images/portfolio-4.png" alt="Portafolio 4" loading="lazy" />
+            </picture>
+              <picture>
+              <source srcSet="/images/portfolio-5.webp" type="image/webp" />
+              <img src="/images/portfolio-5.png" alt="Portafolio 5" loading="lazy" />
+            </picture>
+              <picture>
+              <source srcSet="/images/portfolio-6.webp" type="image/webp" />
+              <img src="/images/portfolio-6.png" alt="Portafolio 6" loading="lazy" />
+            </picture>
             </div>
             <div className="center">
               <a className="btn btn-outline" target="_blank" rel="noopener" href="https://www.instagram.com/highquality_decor/">Ver más en Instagram</a>
@@ -161,23 +184,23 @@ export default function Home(){
             <h2>Preguntas frecuentes</h2>
             <div className="accordion">
               <details>
-                <summary><span>¿Con cuánta anticipación debo reservar?</span><Image src="/icons/chevron.svg" alt="" width={20} height={20} aria-hidden/></summary>
+                <summary><span>¿Con cuánta anticipación debo reservar?</span><img src="/icons/chevron.svg" alt="" width="20" height="20" aria-hidden="true" /></summary>
                 <div className="content">Recomendamos reservar con al menos 3–6 meses de anticipación para garantizar disponibilidad.</div>
               </details>
               <details>
-                <summary><span>¿Trabajan solo en esta ciudad o también en otros lugares?</span><Image src="/icons/chevron.svg" alt="" width={20} height={20} aria-hidden/></summary>
+                <summary><span>¿Trabajan solo en esta ciudad o también en otros lugares?</span><img src="/icons/chevron.svg" alt="" width="20" height="20" aria-hidden="true" /></summary>
                 <div className="content">Nos desplazamos a distintas locaciones, dependiendo de la magnitud y logística del evento.</div>
               </details>
               <details>
-                <summary><span>¿Ofrecen paquetes personalizados?</span><Image src="/icons/chevron.svg" alt="" width={20} height={20} aria-hidden/></summary>
+                <summary><span>¿Ofrecen paquetes personalizados?</span><img src="/icons/chevron.svg" alt="" width="20" height="20" aria-hidden="true" /></summary>
                 <div className="content">Sí, adaptamos cada servicio a tus necesidades y presupuesto.</div>
               </details>
               <details>
-                <summary><span>¿Cómo funciona el pago o anticipo?</span><Image src="/icons/chevron.svg" alt="" width={20} height={20} aria-hidden/></summary>
+                <summary><span>¿Cómo funciona el pago o anticipo?</span><img src="/icons/chevron.svg" alt="" width="20" height="20" aria-hidden="true" /></summary>
                 <div className="content">Solicitamos un anticipo para reservar la fecha y el resto se liquida antes del evento.</div>
               </details>
               <details>
-                <summary><span>¿Puedo contratar solo algunos servicios?</span><Image src="/icons/chevron.svg" alt="" width={20} height={20} aria-hidden/></summary>
+                <summary><span>¿Puedo contratar solo algunos servicios?</span><img src="/icons/chevron.svg" alt="" width="20" height="20" aria-hidden="true" /></summary>
                 <div className="content">Sí, puedes elegir servicios individuales como flores, invitaciones o fotografía.</div>
               </details>
             </div>

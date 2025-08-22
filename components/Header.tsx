@@ -1,7 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
-
 export default function Header(){
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
@@ -30,7 +28,7 @@ export default function Header(){
           <a href="#book-now" className="btn btn-primary">Book Now</a>
         </nav>
         <button className="nav-toggle" aria-label="Abrir menú" aria-expanded={open} aria-controls="mobile-menu" onClick={()=>setOpen(true)}>
-          <Image src="/icons/menu.svg" alt="" width={24} height={24} aria-hidden="true" />
+          <img src="/icons/menu.svg" alt="" width={24} height={24} aria-hidden="true" />
         </button>
       </div>
 
@@ -38,7 +36,7 @@ export default function Header(){
         <div className="mobile-menu__header">
           <span className="brand-text">HIGH QUALITY DECOR</span>
           <button className="mobile-close" aria-label="Cerrar menú" onClick={close}>
-            <Image src="/icons/close.svg" alt="" width={24} height={24} aria-hidden="true" />
+            <img src="/icons/close.svg" alt="" width={24} height={24} aria-hidden="true" />
           </button>
         </div>
         <div className="mobile-menu__links" role="menu">
@@ -51,10 +49,10 @@ export default function Header(){
         </div>
         <div className="mobile-menu__social">
           <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noopener" aria-label="Instagram">
-            <Image src="/icons/instagram.svg" alt="" width={24} height={24} aria-hidden="true" />
+            <img src="/icons/instagram.svg" alt="" width={24} height={24} aria-hidden="true" />
           </a>
           <a href="https://www.facebook.com/railedaris.soto.9/" target="_blank" rel="noopener" aria-label="Facebook">
-            <Image src="/icons/facebook.svg" alt="" width={24} height={24} aria-hidden="true" />
+            <img src="/icons/facebook.svg" alt="" width={24} height={24} aria-hidden="true" />
           </a>
         </div>
       </div>
