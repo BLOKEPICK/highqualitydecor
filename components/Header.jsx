@@ -9,14 +9,14 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
-  // Lock scroll when menu is open
+  // Body scroll lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // Close on ESC (only when open)
+  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -24,12 +24,12 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Click backdrop to close
+  // Backdrop click
   const onBackdrop = (e) => {
     if (e.target === e.currentTarget) close();
   };
 
-  // Return focus to hamburger when closing
+  // Focus return
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -63,26 +63,38 @@ export default function Header() {
           <span className="ham-bar" />
         </button>
 
-        {/* Fullscreen overlay */}
+        {/* Fullscreen overlay with gradient background */}
         <div
           id="mobile-menu"
           ref={overlayRef}
-          className={`mobile-menu-overlay ${open ? "open" : ""}`}
+          className={`mobile-menu-overlay fancy ${open ? "open" : ""}`}
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
           onClick={onBackdrop}
         >
-          <div className="overlay-card" role="document">
+          <div className="overlay-card centered" role="document">
             <div className="overlay-header">
               <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
-            <nav className="overlay-nav" aria-label="Navegación móvil">
-              <a href="/#servicios" onClick={close}>Servicios</a>
-              <a href="/#proyectos" onClick={close}>Proyectos</a>
-              <a href="/#nosotros" onClick={close}>Nosotros</a>
-              <a className="btn-primary" href="/#contacto" onClick={close}>Contacto</a>
+            <nav className="overlay-nav big" aria-label="Navegación móvil">
+              <a className="menu-item" href="/#servicios" onClick={close}>
+                <span className="mi-title">Servicios</span>
+                <span className="mi-sub">Qué hacemos</span>
+              </a>
+              <a className="menu-item" href="/#proyectos" onClick={close}>
+                <span className="mi-title">Proyectos</span>
+                <span className="mi-sub">Casos y resultados</span>
+              </a>
+              <a className="menu-item" href="/#nosotros" onClick={close}>
+                <span className="mi-title">Nosotros</span>
+                <span className="mi-sub">Quiénes somos</span>
+              </a>
+              <a className="menu-item primary" href="/#contacto" onClick={close}>
+                <span className="mi-title">Contacto</span>
+                <span className="mi-sub">Hablemos</span>
+              </a>
             </nav>
           </div>
         </div>
