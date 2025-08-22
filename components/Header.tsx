@@ -1,10 +1,19 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
 export default function Header(){
   const [open, setOpen] = useState(false)
   const close = () => setOpen(false)
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+    return () => document.body.classList.remove('no-scroll')
+  }, [open])
 
   return (
     <header className="site-header" role="banner">
@@ -25,7 +34,7 @@ export default function Header(){
         </button>
       </div>
 
-      <div id="mobile-menu" className="mobile-menu" hidden={!open}>
+      <div id="mobile-menu" className={`mobile-menu ${open ? 'open' : ''}`} aria-hidden={!open}>
         <div className="mobile-menu__header">
           <span className="brand-text">HIGH QUALITY DECOR</span>
           <button className="mobile-close" aria-label="Cerrar menú" onClick={close}>
