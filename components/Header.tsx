@@ -27,6 +27,14 @@ export default function Header(){
           <a href="#contact">Contact</a>
           <a href="#book-now" className="btn btn-primary">Book Now</a>
         </nav>
+        <nav className="nav-desktop" aria-label="Redes" style={{gap:12}}>
+          <a href="https://www.instagram.com/highquality_decor/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/railedaris.soto.9/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.5l.5-3h-3v-1.9c0-.9.3-1.5 1.7-1.5H17V4.1C16.6 4 15.6 4 14.5 4 12 4 10.3 5.5 10.3 8v3H8v3h2.3v8h3.2z"/></svg>
+          </a>
+        </nav>
         <button className="nav-toggle" aria-label="Abrir menú" aria-expanded={open} aria-controls="mobile-menu" onClick={()=>setOpen(true)}>
           <img src="/icons/menu.svg" alt="" width={24} height={24} aria-hidden="true" />
         </button>
