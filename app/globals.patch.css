@@ -1,0 +1,3 @@
+/* Optional minimal blocks to give spacing on the new home page */
+.hero { padding: 60px 0 30px; }
+.block { padding: 40px 0; border-top: 1px solid var(--line); }
