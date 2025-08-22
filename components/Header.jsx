@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const overlayRef = useRef(null);
+  const backdropRef = useRef(null);
   const openBtnRef = useRef(null);
 
   const toggle = () => setOpen(v => !v);
@@ -16,7 +16,7 @@ export default function Header() {
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // ESC to close
+  // ESC to close when open
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -24,12 +24,12 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Backdrop click
-  const onBackdrop = (e) => {
+  // Click backdrop to close
+  const onBackdropClick = (e) => {
     if (e.target === e.currentTarget) close();
   };
 
-  // Focus return
+  // Return focus to hamburger
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -55,37 +55,38 @@ export default function Header() {
           className="hamburger mobile"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
-          aria-controls="mobile-menu"
+          aria-controls="mobile-backdrop"
           onClick={toggle}
         >
           <span className="ham-bar" />
           <span className="ham-bar" />
           <span className="ham-bar" />
         </button>
+      </div>
 
-        {/* Fullscreen overlay (SOLID background, clean items) */}
-        <div
-          id="mobile-menu"
-          ref={overlayRef}
-          className={`mobile-menu-overlay solid ${open ? "open" : ""}`}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="mobile-menu-title"
-          onClick={onBackdrop}
-        >
-          <div className="overlay-card centered" role="document">
-            <div className="overlay-header">
-              <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
-              <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
-            </div>
-            <nav className="overlay-nav clean" aria-label="Navegación móvil">
-              <a className="clean-item" href="/#servicios" onClick={close}>Servicios</a>
-              <a className="clean-item" href="/#proyectos" onClick={close}>Proyectos</a>
-              <a className="clean-item" href="/#nosotros" onClick={close}>Nosotros</a>
-              <a className="clean-item primary" href="/#contacto" onClick={close}>Contacto</a>
-            </nav>
+      {/* Backdrop (FULLY OPAQUE) + slide-in panel */}
+      <div
+        id="mobile-backdrop"
+        ref={backdropRef}
+        className={`backdrop ${open ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
+        onClick={onBackdropClick}
+      >
+        <aside className={`sidepanel ${open ? "open" : ""}`}>
+          <div className="panel-header">
+            <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
+            <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
           </div>
-        </div>
+
+          <nav className="panel-nav" aria-label="Navegación móvil">
+            <a href="/#servicios" onClick={close}>Servicios</a>
+            <a href="/#proyectos" onClick={close}>Proyectos</a>
+            <a href="/#nosotros" onClick={close}>Nosotros</a>
+            <a className="cta" href="/#contacto" onClick={close}>Contacto</a>
+          </nav>
+        </aside>
       </div>
     </header>
   );
