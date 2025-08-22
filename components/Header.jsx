@@ -16,7 +16,7 @@ export default function Header() {
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // ESC to close when open
+  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -64,7 +64,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop (FULLY OPAQUE) + slide-in panel */}
+      {/* Backdrop with INLINE background enforcement */}
       <div
         id="mobile-backdrop"
         ref={backdropRef}
@@ -73,6 +73,7 @@ export default function Header() {
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
         onClick={onBackdropClick}
+        style={{ background: open ? "#000" : "transparent" }}
       >
         <aside className={`sidepanel ${open ? "open" : ""}`}>
           <div className="panel-header">
