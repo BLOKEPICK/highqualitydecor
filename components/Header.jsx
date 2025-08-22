@@ -1,28 +1,38 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
+  const overlayRef = useRef(null);
   const openBtnRef = useRef(null);
 
-  // Lock body scroll when menu is open
+  // Toggle helpers
+  const openMenu = () => setOpen(true);
+  const closeMenu = () => setOpen(false);
+
+  // Lock body scroll when open
   useEffect(() => {
-    if (open) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => { document.body.style.overflow = prev; };
-    }
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = open ? "hidden" : prev;
+    return () => { document.body.style.overflow = prev; };
   }, [open]);
 
   // Close on ESC
   useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") setOpen(false);
-    };
+    const onKey = (e) => { if (e.key === "Escape") closeMenu(); };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  // Click outside overlay content to close
+  useEffect(() => {
+    function onClick(e) {
+      if (!open) return;
+      if (overlayRef.current && e.target === overlayRef.current) closeMenu();
+    }
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [open]);
 
   // Return focus to hamburger when closing
   useEffect(() => {
@@ -51,7 +61,7 @@ export default function Header() {
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          onClick={() => setOpen(true)}
+          onClick={openMenu}
         >
           <span className="ham-bar" />
           <span className="ham-bar" />
@@ -61,28 +71,30 @@ export default function Header() {
         {/* Fullscreen mobile menu */}
         <div
           id="mobile-menu"
-          ref={menuRef}
+          ref={overlayRef}
           className={`mobile-menu-overlay ${open ? "open" : ""}`}
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
         >
-          <div className="overlay-header">
-            <div className="brand-title">High Quality Decor</div>
-            <button
-              className="close-btn"
-              aria-label="Cerrar menú"
-              onClick={() => setOpen(false)}
-            >
-              ✕
-            </button>
+          <div className="overlay-card" role="document">
+            <div className="overlay-header">
+              <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
+              <button
+                className="close-btn"
+                aria-label="Cerrar menú"
+                onClick={closeMenu}
+              >
+                ✕
+              </button>
+            </div>
+            <nav className="overlay-nav" aria-label="Navegación móvil">
+              <a href="/#servicios" onClick={closeMenu}>Servicios</a>
+              <a href="/#proyectos" onClick={closeMenu}>Proyectos</a>
+              <a href="/#nosotros" onClick={closeMenu}>Nosotros</a>
+              <a className="btn-primary" href="/#contacto" onClick={closeMenu}>Contacto</a>
+            </nav>
           </div>
-          <nav className="overlay-nav" aria-label="Navegación móvil">
-            <a href="/#servicios" onClick={() => setOpen(false)}>Servicios</a>
-            <a href="/#proyectos" onClick={() => setOpen(false)}>Proyectos</a>
-            <a href="/#nosotros" onClick={() => setOpen(false)}>Nosotros</a>
-            <a className="btn-primary" href="/#contacto" onClick={() => setOpen(false)}>Contacto</a>
-          </nav>
         </div>
       </div>
     </header>
