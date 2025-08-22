@@ -104,11 +104,15 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(8px);
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform .25s ease, opacity .25s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform .25s ease, opacity .25s ease, visibility .25s ease;
 }
 .mobile-menu-overlay.open {
   transform: translateY(0);
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .overlay-card {
   position: absolute;
@@ -162,7 +166,3 @@ a { color: inherit; text-decoration: none; }
   .hamburger.mobile { display: none; }
   .mobile-menu-overlay { display: none; }
 }
-
-/* Helpers for sample sections (optional) */
-.hero { padding: 60px 0 30px; }
-.block { padding: 40px 0; border-top: 1px solid var(--line); }

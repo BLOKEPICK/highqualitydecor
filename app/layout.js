@@ -1,16 +1,20 @@
+import "./globals.css";
 import Header from "@/components/Header";
+
+// Asegura breakpoints correctos en móviles
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata = {
   title: "High Quality Decor",
-  description: "Base neutra con header responsive",
+  description: "Base con header y soporte móvil correcto.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
       <body>
         <Header />
         {children}
