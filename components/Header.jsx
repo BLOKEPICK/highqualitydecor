@@ -66,7 +66,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel rendered at <body> level via portal (escapa cualquier z-index) */}
+      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -77,17 +77,35 @@ export default function Header() {
           onClick={(e) => { if (e.target === e.currentTarget) close(); }}
           style={{ background: open ? "#000" : "transparent" }}
         >
-          <aside className={`sidepanel ${open ? "open" : ""}`}>
+          <aside className={`sidepanel polished ${open ? "open" : ""}`}>
             <div className="panel-header">
               <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            <nav className="panel-nav" aria-label="Navegación móvil">
-              <a href="/#servicios" onClick={close}>Servicios</a>
-              <a href="/#proyectos" onClick={close}>Proyectos</a>
-              <a href="/#nosotros" onClick={close}>Nosotros</a>
-              <a className="cta" href="/#contacto" onClick={close}>Contacto</a>
+            <nav className="panel-nav">
+              <ul className="nav-list" role="list">
+                <li>
+                  <a className="nav-item" href="/#servicios" onClick={close}>
+                    <span>Servicios</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-item" href="/#proyectos" onClick={close}>
+                    <span>Proyectos</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="nav-item" href="/#nosotros" onClick={close}>
+                    <span>Nosotros</span>
+                  </a>
+                </li>
+                <li className="list-cta">
+                  <a className="nav-item cta" href="/#contacto" onClick={close}>
+                    <span>Contacto</span>
+                  </a>
+                </li>
+              </ul>
             </nav>
           </aside>
         </div>
