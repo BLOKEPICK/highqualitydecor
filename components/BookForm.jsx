@@ -1,14 +1,25 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function BookForm(){
   const [step, setStep] = useState(1)
   const [success, setSuccess] = useState(false)
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const p = new URLSearchParams(window.location.search)
+      const svc = p.get('service')
+      if (svc) {
+        const el = document.querySelector('select[name="service"]')
+        if (el) el.value = svc
+      }
+    }
+  }, [])
+
   const next = () => setStep(s => Math.min(s+1, 3))
   const prev = () => setStep(s => Math.max(s-1, 1))
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>){
+  async function onSubmit(e){
     e.preventDefault()
     const form = e.currentTarget
     const data = Object.fromEntries(new FormData(form).entries())
@@ -17,7 +28,7 @@ export default function BookForm(){
       setSuccess(true)
       form.reset()
       setStep(1)
-    }catch{ /* noop */ }
+    }catch{}
   }
 
   return (
