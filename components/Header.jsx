@@ -16,14 +16,14 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
-  // Bloqueo de scroll del body cuando el panel está abierto
+  // Body lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // Cerrar con ESC
+  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -31,7 +31,7 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Devolver foco a la hamburguesa al cerrar
+  // Return focus
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -43,7 +43,7 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
-        {/* Navegación de escritorio con iconos */}
+        {/* Desktop nav SIN botón */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a className="nav-item" href="/#servicios">
             <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -71,10 +71,43 @@ export default function Header() {
             <span className="label">Nosotros</span>
           </a>
 
-          <a className="btn-primary" href="/#contacto" aria-label="Book now">BOOK NOW</a>
+          <a className="nav-item" href="/#galeria">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="9" cy="11" r="2" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M4.5 17.2l4.2-3.4c.6-.5 1.5-.5 2.1 0l2.9 2.4c.5.4 1.2.4 1.7-.1l4.1-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span className="label">Galería</span>
+          </a>
+
+          <a className="nav-item" href="/#testimonios">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 6h14a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 4V8a2 2 0 0 1 2-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <circle cx="9" cy="11" r="1.2" fill="currentColor"/>
+              <circle cx="12" cy="11" r="1.2" fill="currentColor"/>
+              <circle cx="15" cy="11" r="1.2" fill="currentColor"/>
+            </svg>
+            <span className="label">Testimonios</span>
+          </a>
+
+          <a className="nav-item" href="/#blog">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4z" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M8 8h6M8 12h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span className="label">Blog</span>
+          </a>
+
+          <a className="nav-item" href="/#contacto">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span className="label">Contacto</span>
+          </a>
         </nav>
 
-        {/* Hamburguesa móvil */}
+        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -89,7 +122,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel móvil en portal */}
+      {/* Backdrop + panel móvil (mantenemos CTA BOOK NOW) */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -111,6 +144,10 @@ export default function Header() {
                 <li><a className="pro-item" href="/#servicios" onClick={close}><span className="title">Servicios</span><span className="arrow" aria-hidden="true">→</span></a></li>
                 <li><a className="pro-item" href="/#proyectos" onClick={close}><span className="title">Proyectos</span><span className="arrow" aria-hidden="true">→</span></a></li>
                 <li><a className="pro-item" href="/#nosotros" onClick={close}><span className="title">Nosotros</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#galeria" onClick={close}><span className="title">Galería</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#testimonios" onClick={close}><span className="title">Testimonios</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#blog" onClick={close}><span className="title">Blog</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#contacto" onClick={close}><span className="title">Contacto</span><span className="arrow" aria-hidden="true">→</span></a></li>
               </ul>
             </nav>
 
