@@ -22,6 +22,7 @@
 
   /* keep label size in one var to sync icons */
   --label-size: 12px;
+    --social-size: 18px;
 }
 
 *,
@@ -116,8 +117,8 @@ a { color: inherit; text-decoration: none; }
   padding: 8px 12px 10px; color: var(--muted);
   border-top: 1px dashed var(--panelLine);
 }
-.social-row .social-link { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
-.social-row svg { width: var(--label-size); height: var(--label-size); display: block; }
+.social-row .social-link { display: inline-flex; align-items: center; justify-content: center; line-height: 1; width: 36px; height: 36px; border-radius: 8px; }
+.social-row svg { width: var(--social-size); height: var(--social-size); display: block; }
 .social-row .social-link:hover { color: var(--text); }
 .social-row .social-link:focus-visible { outline: 2px solid var(--accent-700); outline-offset: 2px; border-radius: 8px; }
 
