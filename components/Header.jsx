@@ -66,16 +66,15 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel rendered at <body> level via portal */}
+      {/* Backdrop + panel rendered at <body> level via portal (NO inline black) */}
       <Portal>
         <div
           id="mobile-backdrop"
-          className={`backdrop ${open ? "open" : ""}`}
+          className={`backdrop blur ${open ? "open" : ""}`}
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
           onClick={(e) => { if (e.target === e.currentTarget) close(); }}
-          style={{ background: open ? "#000" : "transparent" }}
         >
           <aside className={`sidepanel light ${open ? "open" : ""}`}>
             <div className="panel-header">

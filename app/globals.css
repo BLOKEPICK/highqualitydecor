@@ -5,15 +5,20 @@
   --muted: #6b7280;
   --line: #e5e7eb;
 
-  /* Accent — changed from purple to Indigo by default */
+  /* Accent */
   --accent: #4f46e5;      /* Indigo 600 */
   --accent-600: #4338ca;  /* hover */
   --accent-700: #3730a3;  /* focus ring */
 
-  /* Panel (menu) — neutral white to avoid colored panel */
+  /* Panel (menu) */
   --panel: #ffffff;
   --panelSoft: #f9fafb;
   --panelLine: #e5e7eb;
+
+  /* Backdrop (blur) */
+  --backdrop-bg: rgba(255,255,255,0.35); /* tenue, funciona con blur en tema claro */
+  --backdrop-blur: 10px;
+  --backdrop-saturate: 125%;
 }
 
 *,
@@ -53,7 +58,7 @@ a { color: inherit; text-decoration: none; }
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 3px;              /* grosor de la franja */
+  height: 3px;
   background: var(--accent);
   pointer-events: none;
 }
@@ -120,7 +125,7 @@ a { color: inherit; text-decoration: none; }
   margin: 4px 0;
 }
 
-/* ===== Backdrop (opaque) + Portal ===== */
+/* ===== Backdrop (BLUR, no black) ===== */
 .backdrop {
   position: fixed;
   inset: 0;
@@ -128,12 +133,16 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity .25s ease, visibility .25s ease;
+  transition: opacity .22s ease, visibility .22s ease, backdrop-filter .22s ease, background .22s ease;
+  background: transparent;
 }
-.backdrop.open {
+.backdrop.blur.open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  background: var(--backdrop-bg);                  /* leve velo claro */
+  backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)) saturate(var(--backdrop-saturate));
 }
 
 /* ===== Side panel (neutral white) ===== */
