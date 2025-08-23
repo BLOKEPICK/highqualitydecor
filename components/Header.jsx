@@ -82,7 +82,7 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            {/* ==== Professional mobile nav ==== */}
+            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
@@ -107,9 +107,15 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Sticky CTA footer */}
+            {/* Sticky CTA footer - BOOK NOW with SVG and accent color */}
             <div className="panel-footer">
-              <a className="cta-primary" href="/#contacto" onClick={close}>Contacto</a>
+              <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
+                <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M6 3v3M18 3v3M4 7h16v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span>BOOK NOW</span>
+              </a>
             </div>
           </aside>
         </div>
