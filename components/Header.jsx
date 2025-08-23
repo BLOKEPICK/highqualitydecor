@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -78,7 +77,7 @@ export default function Header() {
           onClick={(e) => { if (e.target === e.currentTarget) close(); }}
           style={{ background: open ? "#000" : "transparent" }}
         >
-          <aside className={`sidepanel light ${open ? "open" : ""}`}>
+          <aside className={`sidepanel brand ${open ? "open" : ""}`}>
             <div className="panel-header">
               <div id="mobile-menu-title" className="brand-title">High Quality Decor</div>
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
