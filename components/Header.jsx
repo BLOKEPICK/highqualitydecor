@@ -96,7 +96,6 @@ export default function Header() {
               </a>
               <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="socials-link">
                 <svg className="fb" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <!-- tuned F glyph for matching visual weight -->
                   <path d="M14.25 7.5h-1.7c-1.5 0-2.55 1.05-2.55 2.6v1.15H8v2.1h2v5.15h2.2v-5.15h1.9l.65-2.1h-2.55V10.2c0-.4.3-.6.7-.6h1.3V7.5z" fill="currentColor"/>
                 </svg>
               </a>
