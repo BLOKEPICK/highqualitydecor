@@ -16,14 +16,12 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
-  // Body scroll lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -31,7 +29,6 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Return focus to hamburger
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -43,7 +40,6 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a href="/#servicios">Servicios</a>
           <a href="/#proyectos">Proyectos</a>
@@ -51,7 +47,6 @@ export default function Header() {
           <a className="btn-primary" href="/#contacto">Contacto</a>
         </nav>
 
-        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -66,7 +61,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -82,32 +76,15 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
-                <li>
-                  <a className="pro-item" href="/#servicios" onClick={close}>
-                    <span className="title">Servicios</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="pro-item" href="/#proyectos" onClick={close}>
-                    <span className="title">Proyectos</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="pro-item" href="/#nosotros" onClick={close}>
-                    <span className="title">Nosotros</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
+                <li><a className="pro-item" href="/#servicios" onClick={close}><span className="title">Servicios</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#proyectos" onClick={close}><span className="title">Proyectos</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#nosotros" onClick={close}><span className="title">Nosotros</span><span className="arrow" aria-hidden="true">→</span></a></li>
               </ul>
             </nav>
 
-            {/* Sticky CTA: BOOK NOW (from v3.5) */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
