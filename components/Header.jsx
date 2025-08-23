@@ -16,12 +16,14 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
+  // Body scroll lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
+  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -29,6 +31,7 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Return focus to hamburger
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -40,6 +43,7 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
+        {/* Desktop nav */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a href="/#servicios">Servicios</a>
           <a href="/#proyectos">Proyectos</a>
@@ -47,6 +51,7 @@ export default function Header() {
           <a className="btn-primary" href="/#contacto">Contacto</a>
         </nav>
 
+        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -61,6 +66,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Backdrop + panel via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
