@@ -107,7 +107,7 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Sticky CTA footer - BOOK NOW with SVG and accent color */}
+            {/* Sticky CTA: BOOK NOW (from v3.5) */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
