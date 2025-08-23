@@ -16,14 +16,12 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
-  // Body scroll lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
-  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -31,7 +29,6 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Return focus to hamburger
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -43,7 +40,6 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a href="/#servicios">Servicios</a>
           <a href="/#proyectos">Proyectos</a>
@@ -51,7 +47,6 @@ export default function Header() {
           <a className="btn-primary" href="/#contacto">Contacto</a>
         </nav>
 
-        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -66,7 +61,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -82,51 +76,32 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
-                <li>
-                  <a className="pro-item" href="/#servicios" onClick={close}>
-                    <span className="title">Servicios</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="pro-item" href="/#proyectos" onClick={close}>
-                    <span className="title">Proyectos</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="pro-item" href="/#nosotros" onClick={close}>
-                    <span className="title">Nosotros</span>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                </li>
+                <li><a className="pro-item" href="/#servicios" onClick={close}><span className="title">Servicios</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#proyectos" onClick={close}><span className="title">Proyectos</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li><a className="pro-item" href="/#nosotros" onClick={close}><span className="title">Nosotros</span><span className="arrow" aria-hidden="true">→</span></a></li>
               </ul>
             </nav>
 
-            {/* Socials (new class names + new glyphs) */}
+            {/* Socials: IG + FB outlined style, equal size */}
             <div className="socials" aria-label="Redes sociales">
               <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="socials-link">
-                {/* Instagram: circular camera */}
                 <svg className="ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="12" r="3.2" fill="currentColor"/>
-                  <circle cx="16" cy="8" r="1.1" fill="currentColor"/>
+                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
                 </svg>
               </a>
               <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="socials-link">
-                {/* Facebook: F inside same circle for equal visual weight */}
                 <svg className="fb" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M12.8 10.2H14v-1.7h-1.2c-1.3 0-2.3 1-2.3 2.2v1H9.7v1.7h1.8V16h1.8v-2.6h1.3l.5-1.7h-1.8v-1c0-.25.2-.5.5-.5Z" fill="currentColor"/>
+                  <!-- tuned F glyph for matching visual weight -->
+                  <path d="M14.25 7.5h-1.7c-1.5 0-2.55 1.05-2.55 2.6v1.15H8v2.1h2v5.15h2.2v-5.15h1.9l.65-2.1h-2.55V10.2c0-.4.3-.6.7-.6h1.3V7.5z" fill="currentColor"/>
                 </svg>
               </a>
             </div>
 
-            {/* Sticky CTA footer */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
