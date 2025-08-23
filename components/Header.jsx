@@ -40,6 +40,7 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
+        {/* Desktop nav */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a href="/#servicios">Servicios</a>
           <a href="/#proyectos">Proyectos</a>
@@ -47,6 +48,7 @@ export default function Header() {
           <a className="btn-primary" href="/#contacto">Contacto</a>
         </nav>
 
+        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -61,6 +63,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -76,6 +79,7 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
+            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
@@ -85,22 +89,17 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Socials: IG + FB outlined style, equal size */}
+            {/* Socials as WebP images (Instagram + Facebook) */}
             <div className="socials" aria-label="Redes sociales">
               <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="socials-link">
-                <svg className="ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.8" />
-                  <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
-                </svg>
+                <img className="social-img" src="/social/instagram.webp" alt="Instagram" loading="lazy" />
               </a>
               <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="socials-link">
-                <svg className="fb" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M14.25 7.5h-1.7c-1.5 0-2.55 1.05-2.55 2.6v1.15H8v2.1h2v5.15h2.2v-5.15h1.9l.65-2.1h-2.55V10.2c0-.4.3-.6.7-.6h1.3V7.5z" fill="currentColor"/>
-                </svg>
+                <img className="social-img" src="/social/facebook.webp" alt="Facebook" loading="lazy" />
               </a>
             </div>
 
+            {/* Sticky CTA footer */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
