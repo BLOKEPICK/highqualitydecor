@@ -16,12 +16,14 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
+  // Body scroll lock
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
+  // ESC to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -29,6 +31,7 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Return focus to hamburger
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -40,6 +43,7 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
+        {/* Desktop nav */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
           <a href="/#servicios">Servicios</a>
           <a href="/#proyectos">Proyectos</a>
@@ -47,6 +51,7 @@ export default function Header() {
           <a className="btn-primary" href="/#contacto">Contacto</a>
         </nav>
 
+        {/* Mobile hamburger */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -61,6 +66,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -76,15 +82,48 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
+            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
-                <li><a className="pro-item" href="/#servicios" onClick={close}><span className="title">Servicios</span><span className="arrow" aria-hidden="true">→</span></a></li>
-                <li><a className="pro-item" href="/#proyectos" onClick={close}><span className="title">Proyectos</span><span className="arrow" aria-hidden="true">→</span></a></li>
-                <li><a className="pro-item" href="/#nosotros" onClick={close}><span className="title">Nosotros</span><span className="arrow" aria-hidden="true">→</span></a></li>
+                <li>
+                  <a className="pro-item" href="/#servicios" onClick={close}>
+                    <span className="title">Servicios</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="pro-item" href="/#proyectos" onClick={close}>
+                    <span className="title">Proyectos</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="pro-item" href="/#nosotros" onClick={close}>
+                    <span className="title">Nosotros</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
               </ul>
             </nav>
 
+            {/* Social row (centered) */}
+            <div className="social-row" aria-label="Redes sociales">
+              <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="social-link">
+                {/* Instagram glyph */}
+                <svg className="icon-ig" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11.001A5.5 5.5 0 0 1 12 7.5zm0 2a3.5 3.5 0 1 0 0 7.001 3.5 3.5 0 0 0 0-7.001zM18 6.5a1 1 0 1 1 .001 2.001A1 1 0 0 1 18 6.5z"/>
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="social-link">
+                {/* Facebook glyph */}
+                <svg className="icon-fb" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M13.5 9H16V6h-2.5C11.57 6 10 7.57 10 9.5V11H8v3h2v7h3v-7h2.1l.9-3H13v-1.5c0-.28.22-.5.5-.5z"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Sticky CTA footer - BOOK NOW */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
