@@ -16,12 +16,14 @@ export default function Header() {
   const toggle = () => setOpen(v => !v);
   const close = () => setOpen(false);
 
+  // Bloqueo de scroll del body cuando el panel está abierto
   useEffect(() => {
     const prev = document.body.style.overflow;
     if (open) document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
   }, [open]);
 
+  // Cerrar con ESC
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === "Escape") close(); };
@@ -29,6 +31,7 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Devolver foco a la hamburguesa al cerrar
   useEffect(() => {
     if (!open && openBtnRef.current) openBtnRef.current.focus();
   }, [open]);
@@ -40,15 +43,38 @@ export default function Header() {
           <span className="brand-title">High Quality Decor</span>
         </a>
 
-        {/* Desktop nav */}
+        {/* Navegación de escritorio con iconos */}
         <nav className="main-nav desktop" aria-label="Navegación principal">
-          <a href="/#servicios">Servicios</a>
-          <a href="/#proyectos">Proyectos</a>
-          <a href="/#nosotros">Nosotros</a>
-          <a className="btn-primary" href="/#contacto">Contacto</a>
+          <a className="nav-item" href="/#servicios">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3l1.2 3.8L17 8l-3.8 1.2L12 13l-1.2-3.8L7 8l3.8-1.2L12 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+              <path d="M5 14l.6 1.9L8 17l-1.9.6L5 20l-.6-1.9L2 17l1.9-.6L5 14z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+            </svg>
+            <span className="label">Servicios</span>
+          </a>
+
+          <a className="nav-item" href="/#proyectos">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+            <span className="label">Proyectos</span>
+          </a>
+
+          <a className="nav-item" href="/#nosotros">
+            <svg className="nav-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8.5" r="3.2" stroke="currentColor" strokeWidth="1.5"/>
+              <path d="M5 19c0-3.3 3.1-6 7-6s7 2.7 7 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
+            <span className="label">Nosotros</span>
+          </a>
+
+          <a className="btn-primary" href="/#contacto" aria-label="Book now">BOOK NOW</a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* Hamburguesa móvil */}
         <button
           ref={openBtnRef}
           className="hamburger mobile"
@@ -63,7 +89,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel rendered at <body> level via portal */}
+      {/* Backdrop + panel móvil en portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -79,7 +105,6 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            {/* Pro mobile nav */}
             <nav className="panel-nav pro" aria-label="Navegación móvil">
               <div className="section-label">Menú</div>
               <ul className="nav-pro" role="list">
@@ -89,7 +114,7 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Social: Instagram only (SVG), slightly bigger */}
+            {/* Socials — IG único */}
             <div className="socials" aria-label="Redes sociales">
               <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="socials-link">
                 <svg className="ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -100,7 +125,6 @@ export default function Header() {
               </a>
             </div>
 
-            {/* Sticky CTA footer */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
