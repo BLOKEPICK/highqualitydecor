@@ -107,26 +107,26 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Social row (centered) */}
-            <div className="social-row" aria-label="Redes sociales">
-              <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="social-link">
-                {/* Instagram glyph */}
-                <svg  className="icon-ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="2"/>
-                    <circle cx="17" cy="7" r="1.2" fill="currentColor"/>
-                  </svg>
+            {/* Socials (new class names + new glyphs) */}
+            <div className="socials" aria-label="Redes sociales">
+              <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="socials-link">
+                {/* Instagram: circular camera */}
+                <svg className="ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="3.2" fill="currentColor"/>
+                  <circle cx="16" cy="8" r="1.1" fill="currentColor"/>
+                </svg>
               </a>
-              <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="social-link">
-                {/* Facebook glyph */}
-                <svg  className="icon-fb" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" strokeWidth="2"/>
-                    <path d="M13.5 9H15V7h-1.5c-1.4 0-2.5 1.1-2.5 2.5V11H9v2h2v4h2v-4h1.7l.6-2H13v-1.5c0-.28.22-.5.5-.5z" fill="currentColor"/>
-                  </svg>
+              <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="socials-link">
+                {/* Facebook: F inside same circle for equal visual weight */}
+                <svg className="fb" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M12.8 10.2H14v-1.7h-1.2c-1.3 0-2.3 1-2.3 2.2v1H9.7v1.7h1.8V16h1.8v-2.6h1.3l.5-1.7h-1.8v-1c0-.25.2-.5.5-.5Z" fill="currentColor"/>
+                </svg>
               </a>
             </div>
 
-            {/* Sticky CTA footer - BOOK NOW */}
+            {/* Sticky CTA footer */}
             <div className="panel-footer">
               <a className="cta-primary" href="/#contacto" onClick={close} aria-label="Book now">
                 <svg className="cta-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
