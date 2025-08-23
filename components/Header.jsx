@@ -66,7 +66,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Backdrop + panel via portal */}
+      {/* Backdrop + panel rendered at <body> level via portal */}
       <Portal>
         <div
           id="mobile-backdrop"
@@ -82,14 +82,35 @@ export default function Header() {
               <button className="close-btn" aria-label="Cerrar menú" onClick={close}>✕</button>
             </div>
 
-            <nav className="panel-nav">
-              <ul className="nav-list" role="list">
-                <li><a className="nav-item" href="/#servicios" onClick={close}><span>Servicios</span></a></li>
-                <li><a className="nav-item" href="/#proyectos" onClick={close}><span>Proyectos</span></a></li>
-                <li><a className="nav-item" href="/#nosotros" onClick={close}><span>Nosotros</span></a></li>
-                <li className="list-cta"><a className="nav-item cta" href="/#contacto" onClick={close}><span>Contacto</span></a></li>
+            {/* ==== Professional mobile nav ==== */}
+            <nav className="panel-nav pro" aria-label="Navegación móvil">
+              <div className="section-label">Menú</div>
+              <ul className="nav-pro" role="list">
+                <li>
+                  <a className="pro-item" href="/#servicios" onClick={close}>
+                    <span className="title">Servicios</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="pro-item" href="/#proyectos" onClick={close}>
+                    <span className="title">Proyectos</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="pro-item" href="/#nosotros" onClick={close}>
+                    <span className="title">Nosotros</span>
+                    <span className="arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
               </ul>
             </nav>
+
+            {/* Sticky CTA footer */}
+            <div className="panel-footer">
+              <a className="cta-primary" href="/#contacto" onClick={close}>Contacto</a>
+            </div>
           </aside>
         </div>
       </Portal>
