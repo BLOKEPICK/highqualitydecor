@@ -89,13 +89,14 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Socials as WebP images (Instagram + Facebook) */}
+            {/* Social: Instagram only (SVG), slightly bigger */}
             <div className="socials" aria-label="Redes sociales">
               <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="socials-link">
-                <img className="social-img" src="/social/instagram.webp" alt="Instagram" loading="lazy" />
-              </a>
-              <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="socials-link">
-                <img className="social-img" src="/social/facebook.webp" alt="Facebook" loading="lazy" />
+                <svg className="ig" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="12" cy="12" r="4.4" stroke="currentColor" strokeWidth="1.8" />
+                  <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
+                </svg>
               </a>
             </div>
 
