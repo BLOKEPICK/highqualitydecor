@@ -174,9 +174,15 @@ a { color: inherit; text-decoration: none; }
   .hero-mobile { display:block; }
 }
 
-/* --- HOTFIX v4.0.2: Only brand + hamburger on mobile --- */
+/* v4.0.3: mobile nav visibility rules */
 @media (max-width: 1023px) {
   .main-nav.desktop,
   .main-nav.desktop.centered,
   .header-col.center { display: none !important; }
+  .hamburger.mobile { display: inline-flex !important; }
 }
+
+/* v4.0.3: make sure socials row is visible and nicely separated */
+.sidepanel { display: grid; grid-template-rows: auto 1fr auto auto; }
+.socials { display:flex; align-items:center; justify-content:center; gap:24px; padding: 12px 12px 12px; color: var(--muted); border-top: 1px solid var(--panelLine); }
+.socials svg { width: calc(var(--social-size) + 4px); height: calc(var(--social-size) + 4px); }
