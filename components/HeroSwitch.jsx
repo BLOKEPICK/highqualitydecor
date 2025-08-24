@@ -1,13 +1,13 @@
 
 "use client";
 import Hero from "./Hero";
-import HeroDesktopGlassFollowChips from "./HeroDesktopGlassFollowChips";
+import HeroDesktopGlassFollowChipsV2 from "./HeroDesktopGlassFollowChipsV2";
 
 export default function HeroSwitch() {
   return (
     <section aria-label="Hero switch">
       <div className="only-mobile"><Hero /></div>
-      <div className="only-desktop"><HeroDesktopGlassFollowChips /></div>
+      <div className="only-desktop"><HeroDesktopGlassFollowChipsV2 /></div>
 
       <style jsx>{`
         .only-mobile { display: none; }
