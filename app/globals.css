@@ -170,3 +170,18 @@ a { color: inherit; text-decoration: none; }
 .section { padding: 64px 0; border-top: 1px solid #eef2f7; }
 .section.alt { background:#fafafa; }
 .section h2 { font-size: clamp(22px, 3vw, 30px); margin: 0 0 8px; }
+
+/* v4.3.1 — HOTFIX: mobile header/menu */
+@media (max-width: 1023px) {
+  /* Solo brand + hamburguesa en móvil */
+  .header-col.center,
+  .main-nav.desktop,
+  .main-nav.desktop.centered { display: none !important; }
+
+  .cta-desktop { display: none !important; } /* oculta BOOK NOW del header en móvil */
+  .hamburger.mobile { display: inline-flex !important; z-index: 10001; } /* por encima del hero si colisiona */
+}
+
+/* Asegura layering del backdrop/panel móvil */
+.backdrop { z-index: 9999 !important; }
+.sidepanel { z-index: 10000 !important; }
