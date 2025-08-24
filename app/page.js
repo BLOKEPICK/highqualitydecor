@@ -1,9 +1,11 @@
 import Hero from "../components/Hero";
+import HeroDesktopNoImage from "../components/HeroDesktopNoImage";
 
 export default function Page() {
   return (
     <main>
-      <Hero />
+      <div className="show-mobile"><Hero /></div>
+        <div className="show-desktop"><HeroDesktopNoImage /></div>
 
       {/* Placeholder sections for anchors */}
       <section id="services" className="section placeholder">
@@ -33,6 +35,18 @@ export default function Page() {
           <p>Ready to plan? Tap BOOK NOW or reach out via Instagram.</p>
         </div>
       </section>
+    
+      <style jsx>{`
+        /* Local responsive toggles (do not rely on global .mobile/.desktop) */
+        .show-mobile { display: none; }
+        .show-desktop { display: block; }
+
+        @media (max-width: 1023px) {
+          .show-mobile { display: block; }
+          .show-desktop { display: none; }
+        }
+      `}</style>
+
     </main>
   );
 }
