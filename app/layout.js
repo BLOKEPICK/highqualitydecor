@@ -1,19 +1,14 @@
 import "./globals.css";
-import Header from "@/components/Header";
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-};
+import Header from "../components/Header";
 
 export const metadata = {
   title: "High Quality Decor",
-  description: "Slide-in mobile menu con fondo opaco forzado.",
+  description: "Premium event styling and decor",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body>
         <Header />
         {children}
