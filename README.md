@@ -1,25 +1,31 @@
-# Fix: Server-Safe page.js (no styled-jsx)
+# Fix flicker (double hero on desktop)
 
-**Por qué falló el build:** Insertaste un bloque `<style jsx>` en `app/page.js`, que es un **Server Component** por defecto. 
-`styled-jsx` sólo funciona en **Client Components**, por eso Next.js lanzó el error:
-> 'client-only' cannot be imported from a Server Component module...
+**Causa:** El `HeroSwitch` (Client Component con styled-jsx) es evaluado en cliente; antes de hidratar, el SSR deja ambos bloques en el HTML y puede verse un **flash** del hero no deseado.
 
-**Soluciones válidas (elige 1):**
-1) **Usar este `page.js` server-safe** (recomendado) — sin styled-jsx. 
-   - Wrapper desktop/móvil se hace con tus clases **.mobile** y **.desktop** ya definidas en `app/globals.css`.
-2) Convertir `app/page.js` a **Client Component** (`"use client"`), *no recomendado* para App Router.
-3) Mover los estilos locales a un **Client Component** wrapper (ej. `HeroSwitch.jsx`) y dejar `page.js` como Server.
+**Solución:** Usa un **Server Component** que dependa de **CSS global** (`.mobile` / `.desktop`) cargado desde `app/globals.css`, evitando el toggle en cliente.
 
-## Cómo aplicar (opción 1 recomendada)
-1. Reemplaza el contenido de `app/page.js` por `app/page.js.SERVER_SAFE`.
-2. Asegúrate de tener:
-   ```jsx
-   import Hero from "../components/Hero";
-   import HeroDesktopNoImage from "../components/HeroDesktopNoImage";
-   // ...
-   <div className="mobile"><Hero /></div>
-   <div className="desktop"><HeroDesktopNoImage /></div>
+## Archivos en este ZIP
+- `components/HeroSSRWrapper.jsx` (Server Component — sin "use client")
+
+## Pasos
+1. Copia `components/HeroSSRWrapper.jsx` al proyecto.
+2. En `app/page.js`:
+   - Quita el import de `HeroSwitch` y su uso.
+   - Añade:
+     ```jsx
+     import HeroSSRWrapper from "../components/HeroSSRWrapper";
+     // ...
+     <HeroSSRWrapper />
+     ```
+3. Asegúrate de tener en `app/globals.css` las reglas que ya venías usando:
+   ```css
+   /* ejemplo típico */
+   .mobile { display: none; }
+   .desktop { display: block; }
+   @media (max-width: 1023px) {
+     .mobile { display: block; }
+     .desktop { display: none; }
+   }
    ```
-3. `npm run dev` y revisa desktop (≥1024px).
 
-Con esto desaparece el error y verás el nuevo hero en desktop/tablet.
+Con esto, el CSS global se aplica **antes del primer paint** y ya no verás el flash del hero incorrecto.
