@@ -420,3 +420,46 @@ a { color: inherit; text-decoration: none; }
     mix-blend-mode: normal;
   }
 }
+
+/* v4.2.0 — Desktop split: purple panel left + clipped image right */
+@media (min-width: 1024px) {
+  /* Purple information panel on the left with diagonal edge */
+  .hero { position: relative; }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: min(62vw, 760px);
+    background: linear-gradient(135deg, #8F00FF 0%, #7A00E6 100%);
+    /* diagonal right edge */
+    clip-path: polygon(0 0, 86% 0, 70% 100%, 0% 100%);
+    z-index: 0;
+  }
+  .hero .hero-inner { position: relative; z-index: 1; }
+  .hero .hero-copy { color: #fff; }
+  .hero .hero-copy .eyebrow { background: rgba(255,255,255,0.14); color:#fff; border-color: rgba(255,255,255,0.25); }
+  .hero .hero-sub { color: rgba(255,255,255,0.9); }
+  .hero .hero-chips.desktop li {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.25);
+    color: #fff;
+  }
+
+  /* Right-side clipped image */
+  .hero-art.cut { position: relative; height: clamp(380px, 42vw, 640px); }
+  .hero-art.cut .media {
+    position: relative; width: 100%; height: 100%;
+    /* clip to create the "cut" left side */
+    clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%, 0 26%);
+    border-radius: 0; overflow: clip;
+    box-shadow: 0 28px 60px rgba(2,6,23,0.20);
+  }
+  .hero-art.cut .media img,
+  .hero-art.cut .media span { object-fit: cover; object-position: center; }
+  .hero-art.cut .overlay { position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,0.08), transparent 40%); pointer-events:none; }
+
+  /* Ensure CTAs remain in one line on desktop */
+  .hero-cta { flex-wrap: nowrap; gap: 12px; }
+  .hero-cta .cta-primary { padding: 9px 12px; }
+  .hero-cta .cta-ghost { padding: 9px 12px; }
+}
