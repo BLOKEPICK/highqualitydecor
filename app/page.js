@@ -1,11 +1,10 @@
 import Hero from "../components/Hero";
-import HeroDesktopNoImage from "../components/HeroDesktopNoImage";
+import HeroSwitch from "../components/HeroSwitch";
 
 export default function Page() {
   return (
     <main>
-      <div className="mobile"><Hero /></div>
-        <div className="desktop"><HeroDesktopNoImage /></div>
+      <HeroSwitch />
 
       {/* Placeholder sections for anchors */}
       <section id="services" className="section placeholder">
@@ -35,6 +34,6 @@ export default function Page() {
           <p>Ready to plan? Tap BOOK NOW or reach out via Instagram.</p>
         </div>
       </section>
-</main>
+    </main>
   );
 }
