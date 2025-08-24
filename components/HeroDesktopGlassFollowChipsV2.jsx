@@ -113,6 +113,7 @@ export default function HeroDesktopGlassFollowChipsV2() {
 
         .social-inline { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
         .social-inline .label { font-weight: 700; color: #111; font-size: 14px; }
+        .social-inline .icons { display: inline-flex; align-items: center; gap: 14px; }
         .social-inline .icons :global(a) { display: inline-flex; align-items: center; }
         .social-inline .icons :global(svg) { width: 22px; height: 22px; display: block; }
 
