@@ -28,7 +28,7 @@ export default function Hero() {
               </svg>
               <span>BOOK NOW</span>
             </Link>
-            <a className="cta-ghost" href="/#gallery" aria-label="View gallery">View Gallery</a>
+            <a className="cta-ghost" href="/#gallery" aria-label="View gallery"><svg className="vg-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 14l2.5-2.5c.4-.4 1-.4 1.4 0L12 13l3-3c.4-.4 1-.4 1.4 0L18 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>View Gallery</span></a>
           </div>
 
           {/* Feature chips */}
@@ -36,6 +36,21 @@ export default function Hero() {
             <li>On‑site setup</li>
             <li>Custom themes</li>
             <li>Same‑day options</li>
+          
+          {/* Mobile chips (clearer text + icons) */}
+          <ul className="hero-chips mobile" role="list">
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>We set it up</span>
+            </li>
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>Custom design</span>
+            </li>
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span>Book today</span>
+            </li>
           </ul>
         </div>
 
