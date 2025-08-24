@@ -137,6 +137,7 @@ export default function Header() {
             </nav>
 
             {/* Socials — IG + FB SVGs */}
+                        <div className="socials-label">Follow us</div>
             <div className="socials" aria-label="Social">
               <a href="#" target="_blank" rel="noopener noreferrer" className="socials-link" aria-label="Instagram">
                 <span className="sr-only">Instagram</span>
