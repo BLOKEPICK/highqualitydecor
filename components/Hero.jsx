@@ -55,8 +55,6 @@ export default function Hero() {
             <div className="overlay" aria-hidden="true" />
           </figure>
         </div>
-
-        {/* Mobile carousel intentionally not rendered; images are hidden on mobile */}
       </div>
     </section>
   );

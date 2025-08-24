@@ -52,6 +52,7 @@ export default function Header() {
 
         <div className="header-col right">
           <Link className="btn-book cta-desktop" href={BOOK_URL}><span>BOOK NOW</span></Link>
+
           <button ref={btnRef} className="hamburger mobile" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={toggle}>
             <span className="ham-bar" /><span className="ham-bar" /><span className="ham-bar" />
           </button>
@@ -70,10 +71,10 @@ export default function Header() {
             <nav className="panel-nav pro" aria-label="Mobile navigation">
               <div className="section-label">Menu</div>
               <ul className="nav-pro" role="list">
-                <li><Link className="pro-item" href="/#services" onClick={close}><span className="title">Services</span><span className="arrow">→</span></Link></li>
-                <li><Link className="pro-item" href="/#about" onClick={close}><span className="title">About Us</span><span className="arrow">→</span></Link></li>
-                <li><Link className="pro-item" href="/#gallery" onClick={close}><span className="title">Gallery</span><span className="arrow">→</span></Link></li>
-                <li><Link className="pro-item" href="/#contact" onClick={close}><span className="title">Contact</span><span className="arrow">→</span></Link></li>
+                <li><Link className="pro-item" href="/#services" onClick={close}><span className="title">Services</span><span className="arrow" aria-hidden="true">→</span></Link></li>
+                <li><Link className="pro-item" href="/#about" onClick={close}><span className="title">About Us</span><span className="arrow" aria-hidden="true">→</span></Link></li>
+                <li><Link className="pro-item" href="/#gallery" onClick={close}><span className="title">Gallery</span><span className="arrow" aria-hidden="true">→</span></Link></li>
+                <li><Link className="pro-item" href="/#contact" onClick={close}><span className="title">Contact</span><span className="arrow" aria-hidden="true">→</span></Link></li>
               </ul>
             </nav>
 
