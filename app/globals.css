@@ -174,8 +174,9 @@ a { color: inherit; text-decoration: none; }
   .hero-mobile { display:block; }
 }
 
-/* --- HOTFIX v4.0.1: Ensure mobile hamburger is visible and layered --- */
-.header-col.right { position: relative; z-index: 2; }
-.hamburger.mobile { display: inline-flex; }
-@media (min-width: 1024px) { .hamburger.mobile { display: none; }
+/* --- HOTFIX v4.0.2: Only brand + hamburger on mobile --- */
+@media (max-width: 1023px) {
+  .main-nav.desktop,
+  .main-nav.desktop.centered,
+  .header-col.center { display: none !important; }
 }
