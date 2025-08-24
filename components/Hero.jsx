@@ -1,4 +1,5 @@
 "use client";
+// v4.0.9 — Desktop mosaic hero (forced), mobile unchanged
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,11 +38,20 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Desktop feature chips */}
-          <ul className="hero-chips" role="list">
-            <li>On‑site setup</li>
-            <li>Custom themes</li>
-            <li>Same‑day options</li>
+          {/* Desktop chips with icons */}
+          <ul className="hero-chips desktop" role="list">
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span>We set it up</span>
+            </li>
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              <span>Custom design</span>
+            </li>
+            <li>
+              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
+              <span>Book today</span>
+            </li>
           </ul>
 
           {/* Mobile chips (clearer text + icons) */}
@@ -61,20 +71,26 @@ export default function Hero() {
           </ul>
         </div>
 
-        {/* Right collage for desktop */}
-        <div className="hero-art" aria-hidden="true">
-          <div className="polaroid p1">
-            <Image src="/media/hero-romance-a.webp" alt="Romantic dinner setup by candlelight" fill priority sizes="(min-width: 1024px) 420px, 0px" />
+        {/* Right mosaic for desktop (forced) */}
+        <div className="hero-art mosaic" aria-hidden="true">
+          <div className="frame f1">
+            <div className="inner">
+              <Image src="/media/hero-romance-a.webp" alt="Romantic dinner setup by candlelight" fill priority sizes="(min-width: 1024px) 420px, 0px" />
+            </div>
           </div>
-          <div className="polaroid p2">
-            <Image src="/media/hero-brunch-b.webp" alt="Brunch tray with fruits and rosé" fill priority sizes="(min-width: 1024px) 320px, 0px" />
+          <div className="frame f2">
+            <div className="inner">
+              <Image src="/media/hero-brunch-b.webp" alt="Brunch tray with fruits and rosé" fill priority sizes="(min-width: 1024px) 360px, 0px" />
+            </div>
           </div>
-          <div className="polaroid p3">
-            <Image src="/media/hero-decor-c.webp" alt="Balloon and floral backdrop for events" fill priority sizes="(min-width: 1024px) 360px, 0px" />
+          <div className="frame f3">
+            <div className="inner">
+              <Image src="/media/hero-decor-c.webp" alt="Balloon and floral backdrop for events" fill priority sizes="(min-width: 1024px) 380px, 0px" />
+            </div>
           </div>
         </div>
 
-        {/* Mobile carousel (kept for markup, but hidden via CSS per v4.0.5) */}
+        {/* Mobile carousel (kept for markup; hidden in CSS for mobile per v4.0.5) */}
         <div className="hero-mobile">
           <div className="snap-row">
             <figure className="snap-card">

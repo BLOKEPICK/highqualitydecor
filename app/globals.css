@@ -301,3 +301,40 @@ a { color: inherit; text-decoration: none; }
   .hero-cta .cta-primary { padding: 10px 14px; }
   .hero-cta .cta-ghost { padding: 10px 14px; }
 }
+
+/* v4.0.9 — Force desktop mosaic, compress CTA */
+@media (min-width: 1024px) {
+  /* Hide any legacy polaroids just in case */
+  .polaroid { display: none !important; }
+
+  /* Mosaic styles (keep from v4.0.8 and ensure present) */
+  .hero-art.mosaic {
+    display: grid;
+    grid-template-areas:
+      "a b"
+      "c b";
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 14px;
+  }
+  .hero-art.mosaic .frame {
+    position: relative;
+    padding: 6px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(143,0,255,0.45), rgba(143,0,255,0.08));
+    box-shadow: 0 16px 40px rgba(2,6,23,0.14);
+  }
+  .hero-art.mosaic .frame .inner {
+    position: relative;
+    width: 100%; height: 100%;
+    border-radius: 16px; overflow: hidden; background: #fff;
+    min-height: 220px;
+  }
+  .hero-art.mosaic .f1 { grid-area: a; aspect-ratio: 4 / 3; }
+  .hero-art.mosaic .f2 { grid-area: b; aspect-ratio: 3 / 4; }
+  .hero-art.mosaic .f3 { grid-area: c; aspect-ratio: 4 / 3; }
+
+  /* CTAs tightened so both fit comfortably */
+  .hero-cta { gap: 12px; }
+  .hero-cta .cta-primary { padding: 9px 12px; }
+  .hero-cta .cta-ghost { padding: 9px 12px; }
+}
