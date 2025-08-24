@@ -253,3 +253,51 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1024px) {
   .hero-chips.mobile { display: none !important; }  /* hide mobile chips on desktop */
 }
+
+/* v4.0.8 — Desktop-only hero polish */
+@media (min-width: 1024px) {
+  /* Subtle top purple gradient similar to mobile */
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0; height: 120px;
+    background: linear-gradient(180deg, rgba(143,0,255,0.12), rgba(143,0,255,0));
+    pointer-events: none;
+  }
+
+  /* Modern mosaic layout instead of polaroids */
+  .hero-art.mosaic {
+    display: grid;
+    grid-template-areas:
+      "a b"
+      "c b";
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 14px;
+    height: auto;
+    perspective: none;
+    transform: none;
+  }
+  .hero-art.mosaic .frame {
+    position: relative;
+    padding: 6px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(143,0,255,0.45), rgba(143,0,255,0.08));
+    box-shadow: 0 16px 40px rgba(2,6,23,0.14);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .hero-art.mosaic .frame:hover { transform: translateY(-4px); box-shadow: 0 22px 54px rgba(2,6,23,0.18); }
+  .hero-art.mosaic .frame .inner {
+    position: relative;
+    width: 100%; height: 100%;
+    border-radius: 16px; overflow: hidden;
+    background: #fff;
+  }
+  .hero-art.mosaic .f1 { grid-area: a; aspect-ratio: 4 / 3; }
+  .hero-art.mosaic .f2 { grid-area: b; aspect-ratio: 3 / 4; }
+  .hero-art.mosaic .f3 { grid-area: c; aspect-ratio: 4 / 3; }
+
+  /* Tighten CTAs so both fit nicely in one line */
+  .hero-cta { flex-wrap: nowrap; gap: 12px; }
+  .hero-cta .cta-primary { padding: 10px 14px; }
+  .hero-cta .cta-ghost { padding: 10px 14px; }
+}
