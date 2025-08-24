@@ -1,5 +1,4 @@
 "use client";
-// v4.0.9 — Desktop mosaic hero (forced), mobile unchanged
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +7,7 @@ const BOOK_URL = "/book";
 export default function Hero() {
   return (
     <section className="hero" aria-label="Hero">
-      {/* Decorative gradient blobs */}
+      {/* Background blobs (subtle) */}
       <div className="hero-bg" aria-hidden="true" />
 
       <div className="container hero-inner">
@@ -38,74 +37,37 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Desktop chips with icons */}
+          {/* Chips (desktop = single line with icons) */}
           <ul className="hero-chips desktop" role="list">
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              <span>We set it up</span>
-            </li>
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-              <span>Custom design</span>
-            </li>
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
-              <span>Book today</span>
-            </li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg><span>We set it up</span></li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg><span>Custom design</span></li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/></svg><span>Book today</span></li>
           </ul>
 
-          {/* Mobile chips (clearer text + icons) */}
+          {/* Chips for mobile (icons + clearer text) */}
           <ul className="hero-chips mobile" role="list">
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              <span>We set it up</span>
-            </li>
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-              <span>Custom design</span>
-            </li>
-            <li>
-              <svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/></svg>
-              <span>Book today</span>
-            </li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg><span>We set it up</span></li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg><span>Custom design</span></li>
+            <li><svg className="chip-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2"/></svg><span>Book today</span></li>
           </ul>
         </div>
 
-        {/* Right mosaic for desktop (forced) */}
-        <div className="hero-art mosaic" aria-hidden="true">
-          <div className="frame f1">
-            <div className="inner">
-              <Image src="/media/hero-romance-a.webp" alt="Romantic dinner setup by candlelight" fill priority sizes="(min-width: 1024px) 420px, 0px" />
-            </div>
-          </div>
-          <div className="frame f2">
-            <div className="inner">
-              <Image src="/media/hero-brunch-b.webp" alt="Brunch tray with fruits and rosé" fill priority sizes="(min-width: 1024px) 360px, 0px" />
-            </div>
-          </div>
-          <div className="frame f3">
-            <div className="inner">
-              <Image src="/media/hero-decor-c.webp" alt="Balloon and floral backdrop for events" fill priority sizes="(min-width: 1024px) 380px, 0px" />
-            </div>
-          </div>
+        {/* Desktop right: cut image */}
+        <div className="hero-art cut" aria-hidden="true">
+          <figure className="media">
+            <Image src="/media/hero-romance-a.webp" alt="Elegant event styling by High Quality Decor" fill priority sizes="(min-width: 1024px) 50vw, 0px" />
+            <div className="overlay" aria-hidden="true" />
+          </figure>
         </div>
 
-        {/* Mobile carousel (kept for markup; hidden in CSS for mobile per v4.0.5) */}
+        {/* Mobile carousel exists in markup but is hidden by CSS per your preference */}
         <div className="hero-mobile">
           <div className="snap-row">
-            <figure className="snap-card">
-              <Image src="/media/hero-romance-a.webp" alt="Romantic dinner setup by candlelight" fill sizes="(max-width: 1023px) 88vw, 0px" />
-            </figure>
-            <figure className="snap-card">
-              <Image src="/media/hero-brunch-b.webp" alt="Brunch tray with fruits and rosé" fill sizes="(max-width: 1023px) 88vw, 0px" />
-            </figure>
-            <figure className="snap-card">
-              <Image src="/media/hero-decor-c.webp" alt="Balloon and floral backdrop for events" fill sizes="(max-width: 1023px) 88vw, 0px" />
-            </figure>
+            <figure className="snap-card"><Image src="/media/hero-romance-a.webp" alt="Romantic dinner setup by candlelight" fill sizes="(max-width: 1023px) 88vw, 0px" /></figure>
+            <figure className="snap-card"><Image src="/media/hero-brunch-b.webp" alt="Brunch tray with fruits and rosé" fill sizes="(max-width: 1023px) 88vw, 0px" /></figure>
+            <figure className="snap-card"><Image src="/media/hero-decor-c.webp" alt="Balloon and floral backdrop for events" fill sizes="(max-width: 1023px) 88vw, 0px" /></figure>
           </div>
-          <div className="snap-dots" aria-hidden="true">
-            <span/><span/><span/>
-          </div>
+          <div className="snap-dots" aria-hidden="true"><span/><span/><span/></div>
         </div>
       </div>
     </section>
