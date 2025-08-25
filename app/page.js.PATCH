@@ -1,14 +1,11 @@
-/** app/page.js (PATCH) — Use UA-based server wrapper; avoid client toggles */
-import HeroUAWrapper from "../components/HeroUAWrapper";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+/** app/page.js (PATCH) — Use hard split wrapper; remove any other hero renders */
+import HeroHardSplit from "../components/HeroHardSplit";
 
 export default function Home() {
   return (
     <main>
-      <HeroUAWrapper />
-      {/* ...rest of your sections... */}
+      <HeroHardSplit />
+      {/* ...resto de tu página... */}
     </main>
   );
 }
