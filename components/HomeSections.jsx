@@ -1,7 +1,8 @@
+"use client";
+
 // components/HomeSections.jsx
 // Services section — sits directly under the hero on both /desktop and /mobile.
-// It is self-contained (styled-jsx) and uses inline SVGs for crisp icons.
-// Link targets: the "Book" CTA points to /book (already present in the project).
+// Uses styled-jsx, so this file must be a Client Component.
 
 export default function HomeSections() {
   return (
