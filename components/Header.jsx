@@ -14,6 +14,27 @@ function Portal({ children }) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+// Lock background scroll when the mobile drawer is open
+useEffect(() => {
+  const html = document.documentElement;
+  const body = document.body;
+  if (open) {
+    html.classList.add('drawer-open');
+    body.classList.add('drawer-open');
+    body.style.position = 'relative';
+  } else {
+    html.classList.remove('drawer-open');
+    body.classList.remove('drawer-open');
+    body.style.position = '';
+  }
+  return () => {
+    html.classList.remove('drawer-open');
+    body.classList.remove('drawer-open');
+    body.style.position = '';
+  };
+}, [open]);
+
   const openBtnRef = useRef(null);
 
   const toggle = () => setOpen(v => !v);
