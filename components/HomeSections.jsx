@@ -1,20 +1,14 @@
 "use client";
 
 // components/HomeSections.jsx
-// Redesigned: richer visuals, purple accents (uses var(--accent) with fallback), minimal CTAs.
+// Redesigned without the purple background/gradient above Services.
 // Sections: Services → How it works → Why choose us + single CTA.
 
 export default function HomeSections() {
   return (
     <>
-      {/* ===== SERVICES ===== */}
+      {/* ===== SERVICES (no purple background) ===== */}
       <section id="services" className="s-services" aria-label="Our services">
-        <div className="bg" aria-hidden="true">
-          <div className="blob a" />
-          <div className="blob b" />
-          <div className="gridlines" />
-        </div>
-
         <div className="container">
           <header className="hdr">
             <div className="eyebrow">Services</div>
@@ -39,7 +33,6 @@ export default function HomeSections() {
                     ))}
                   </div>
                 </div>
-                {/* whole card is hoverable; we keep CTAs minimal, no extra buttons here */}
               </li>
             ))}
           </ul>
@@ -49,20 +42,8 @@ export default function HomeSections() {
           .s-services {
             position: relative;
             padding: 68px 0 56px;
-            background: #fff;
+            background: #fff; /* ← sin blobs ni gridlines */
             border-top: 1px solid var(--line);
-            overflow: hidden;
-            isolation: isolate;
-          }
-          .bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-          .blob { position: absolute; filter: blur(90px); opacity: .5; border-radius: 999px; }
-          .blob.a { top: -10%; left: -6%; width: 540px; height: 540px; background: radial-gradient(60% 60% at 30% 40%, var(--accent, #6D28D9), transparent 70%); }
-          .blob.b { bottom: -18%; right: -12%; width: 700px; height: 700px; background: radial-gradient(60% 60% at 60% 60%, color-mix(in oklab, var(--accent, #6D28D9) 70%, #111 30%), transparent 70%); opacity: .28; }
-          .gridlines {
-            position: absolute; inset: -20px;
-            background: repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 22px),
-                        repeating-linear-gradient(0deg, rgba(0,0,0,.035) 0 1px, transparent 1px 22px);
-            mask-image: radial-gradient(70% 70% at 50% 50%, rgba(0,0,0,.85), transparent 78%);
           }
 
           .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
@@ -110,7 +91,6 @@ export default function HomeSections() {
             transition: transform .08s ease, box-shadow .18s ease, border-color .18s ease;
           }
           .card::after {
-            /* subtle purple keyline on hover */
             content:""; position:absolute; inset:0; border-radius:18px; pointer-events:none; opacity:0;
             box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent, #6D28D9) 55%, transparent);
             transition: opacity .18s ease;
@@ -178,7 +158,6 @@ export default function HomeSections() {
           }
           @media (min-width: 768px) { .track { grid-template-columns: repeat(3, 1fr); } }
           .track::before {
-            /* subtle purple gradient line that connects steps on mobile */
             content:""; position:absolute; left: 13px; top: 18px; bottom: 18px; width: 2px;
             background: linear-gradient(180deg, var(--accent, #6D28D9), transparent);
             border-radius: 2px;
@@ -206,10 +185,6 @@ export default function HomeSections() {
 
       {/* ===== WHY CHOOSE US + CTA ===== */}
       <section id="why" className="s-why" aria-label="Why choose us">
-        <div className="bg" aria-hidden="true">
-          <div className="mesh a" />
-          <div className="mesh b" />
-        </div>
         <div className="container">
           <header className="hdr">
             <div className="eyebrow">Why choose us</div>
@@ -240,13 +215,7 @@ export default function HomeSections() {
             padding: 50px 0 70px;
             background: linear-gradient(180deg, #fff, #fafafa);
             border-top: 1px solid var(--line);
-            overflow: hidden;
-            isolation: isolate;
           }
-          .bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
-          .mesh { position: absolute; filter: blur(90px); opacity:.55; border-radius:999px; }
-          .mesh.a { top: -12%; right: 10%; width: 520px; height: 520px; background: radial-gradient(60% 60% at 40% 40%, var(--accent, #6D28D9), transparent 70%); }
-          .mesh.b { bottom: -15%; left: 6%; width: 700px; height: 700px; background: radial-gradient(60% 60% at 60% 60%, color-mix(in oklab, var(--accent, #6D28D9) 70%, #111 30%), transparent 70%); opacity:.25; }
 
           .container { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
           .hdr .eyebrow { font-size: 12px; font-weight: 800; letter-spacing:.08em; text-transform:uppercase; color:#6b7280; }
@@ -264,8 +233,7 @@ export default function HomeSections() {
           .cta {
             display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;
             padding: 16px; border-radius: 16px; border:1px solid var(--line);
-            background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6)),
-                        conic-gradient(from 180deg at 80% 0%, color-mix(in oklab, var(--accent, #6D28D9) 10%, transparent), transparent 60%);
+            background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));
             box-shadow: 0 12px 28px rgba(0,0,0,.06);
           }
           .cta .copy h3 { margin:0 0 2px; font-size: 18px; font-weight: 900; }
