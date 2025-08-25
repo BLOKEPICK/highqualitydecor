@@ -1,0 +1,18 @@
+/* app/layout.js (PATCH) — Paste this <style> inside your Layout's return (Server Component) */
+<style
+  dangerouslySetInnerHTML={{
+    __html: `
+/* Ensure correct hero visibility on first paint */
+.mobile { display: none; }
+.desktop { display: block; }
+@media (max-width: 1023px) {
+  .mobile { display: block; }
+  .desktop { display: none; }
+}
+
+/* Lock icon sizes BEFORE hydration to avoid "huge icons" flash */
+.social-inline svg { width:22px; height:22px; display:block; }
+.chip-ico { width:16px; height:16px; display:block; }
+`
+  }}
+/>
