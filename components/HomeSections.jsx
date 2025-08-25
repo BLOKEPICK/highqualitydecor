@@ -1,12 +1,12 @@
 "use client";
 
 // components/HomeSections.jsx
-// Services section — sits directly under the hero on both /desktop and /mobile.
-// Uses styled-jsx, so this file must be a Client Component.
+// Sections included (in order): Services → How it works → Why choose us (badges + CTA).
 
 export default function HomeSections() {
   return (
     <>
+      {/* SERVICES */}
       <section id="services" className="services" aria-label="Our services">
         <div className="container">
           <p className="eyebrow">Services</p>
@@ -131,7 +131,7 @@ export default function HomeSections() {
 
         <style jsx>{`
           .services {
-            padding: 56px 0 64px;
+            padding: 56px 0 48px;
             border-top: 1px solid var(--line);
             background: #fff;
           }
@@ -193,6 +193,130 @@ export default function HomeSections() {
             transition: transform .08s ease, box-shadow .15s ease;
           }
           .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.12); }
+        `}</style>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section id="process" className="process" aria-label="How it works">
+        <div className="container">
+          <p className="eyebrow">Process</p>
+          <h2 className="title">How it works</h2>
+
+          <ol className="steps" role="list">
+            <li className="step">
+              <span className="step-num">1</span>
+              <div className="step-body">
+                <h3>Consultation</h3>
+                <p>Tell us your date, venue and vibe. We’ll align on scope, mood and budget.</p>
+              </div>
+            </li>
+            <li className="step">
+              <span className="step-num">2</span>
+              <div className="step-body">
+                <h3>Custom design</h3>
+                <p>We craft a tailored concept — colors, props, florals and add‑ons.</p>
+              </div>
+            </li>
+            <li className="step">
+              <span className="step-num">3</span>
+              <div className="step-body">
+                <h3>Setup &amp; teardown</h3>
+                <p>We handle delivery, on‑site install and a clean teardown after your event.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div className="cta-row">
+            <a className="btn ghost" href="/book" aria-label="Start your booking">Start your booking</a>
+          </div>
+        </div>
+
+        <style jsx>{`
+          .process { padding: 40px 0 48px; background: #fafafa; border-top: 1px solid var(--line); }
+          .container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+          .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; }
+          .title { margin: 6px 0 14px; font-size: clamp(22px, 3.6vw, 32px); font-weight: 800; line-height: 1.15; }
+          .steps { display: grid; grid-template-columns: 1fr; gap: 12px; counter-reset: step; }
+          @media (min-width: 768px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+          .step { display: flex; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+          .step-num {
+            display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px;
+            background: #111; color: #fff; font-weight: 800; font-size: 14px;
+          }
+          .step-body h3 { margin: 2px 0 4px; font-size: 15px; font-weight: 800; }
+          .step-body p { color: #4b5563; font-size: 14px; line-height: 1.6; }
+          .cta-row { margin-top: 16px; }
+          .btn.ghost {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 10px 14px; border-radius: 12px; font-weight: 700; font-size: 13px;
+            border: 1px solid #d1d5db; color: #111; background: #fff;
+            transition: transform .08s ease, box-shadow .15s ease;
+          }
+          .btn.ghost:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+        `}</style>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section id="why" className="why" aria-label="Why choose us">
+        <div className="container">
+          <p className="eyebrow">Why choose us</p>
+          <h2 className="title">Details that feel effortless</h2>
+
+          <ul className="badges" role="list">
+            <li className="badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7 9 18l-5-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span>Licensed &amp; insured</span>
+            </li>
+            <li className="badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h8M12 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span>On‑time delivery</span>
+            </li>
+            <li className="badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M12 3v18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              <span>We set it up</span>
+            </li>
+            <li className="badge">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M12 7v10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              <span>Book today</span>
+            </li>
+          </ul>
+
+          <div className="cta-banner">
+            <div className="cta-copy">
+              <h3>Ready to plan something beautiful?</h3>
+              <p>Quick booking. Clear pricing. Friendly setup.</p>
+            </div>
+            <a href="/book" className="btn primary" aria-label="Book now">Book now</a>
+          </div>
+        </div>
+
+        <style jsx>{`
+          .why { padding: 40px 0 64px; background: #fff; border-top: 1px solid var(--line); }
+          .container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+          .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; }
+          .title { margin: 6px 0 14px; font-size: clamp(22px, 3.6vw, 32px); font-weight: 800; line-height: 1.15; }
+          .badges { display:flex; flex-wrap: wrap; gap:10px; margin-bottom:16px; }
+          .badge {
+            display:inline-flex; align-items:center; gap:8px;
+            padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff;
+            font-size:13px; color:#111;
+          }
+          .badge :global(svg){ width:16px; height:16px; display:block; }
+
+          .cta-banner {
+            display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+            gap:12px; padding:16px; border:1px solid var(--line); border-radius:16px;
+            background: linear-gradient(180deg, #fff, #fafafa);
+          }
+          .cta-copy h3 { margin:0 0 2px; font-size:18px; font-weight:800; }
+          .cta-copy p { margin:0; color:#4b5563; font-size:14px; }
+          .btn.primary {
+            display:inline-flex; align-items:center; justify-content:center;
+            padding:10px 14px; border-radius:12px; font-weight:700; font-size:13px;
+            border:1px solid #111; background:#111; color:#fff;
+            transition: transform .08s ease, box-shadow .15s ease;
+          }
+          .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.12); }
         `}</style>
       </section>
     </>
